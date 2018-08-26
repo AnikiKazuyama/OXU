@@ -1,0 +1,49 @@
+@import '../../../assets/style/colors.sass';
+
+$headerHeight: 55px;
+
+.site-header {
+  box-sizing: content-box;
+  position: fixed;
+  height: $headerHeight;
+  width: 100%;
+  border-bottom: 1px solid #d4d9e3;
+  background-color: #ffffff;
+  &__logo {
+    width: 220px;
+    margin-right: 25px;
+    line-height: $headerHeight;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding-left: 50px;
+      background-image: url('../../../assets/img/logo.svg');
+      background-repeat: no-repeat;
+      background-position: 0 center;
+      background-size: 40px;
+      font-size: 28px;
+      font-weight: 100;
+      text-transform: uppercase;
+    }    
+  }
+  &__container {
+    display: flex;
+    height: 100%;
+  }
+  &__input {
+    margin-right: auto;
+    input {
+      height: 100%;
+      padding: 0 20px 0 40px;
+      background-image: url('../icons/search.svg');
+      background-repeat: no-repeat;
+      background-position: 10px center;
+      font-size: 18px;
+      transition: background-color 0.1s ease-in-out; 
+      &:focus {
+        background-color: $searchFocus;
+      }
+    }
+  }
+}
