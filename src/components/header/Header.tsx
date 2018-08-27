@@ -6,6 +6,8 @@ import HeaderProfile from './headerProfile';
 
 import './style/index.css';
 
+import profileItems from '../../constants/profilePopupMenu';
+
 class Header extends React.Component {
   public render() {
     return(
@@ -16,7 +18,7 @@ class Header extends React.Component {
               <a href="">oxu</a>
             </div>
             <InputSearch className="site-header__input"/>
-            <Dropdown items={ [{a: 'google.com', name: 'google'}] }>
+            <Dropdown items={ profileItems.items }>
               <HeaderProfile/>
             </Dropdown>
             

@@ -10,7 +10,7 @@ class Dropdown extends React.Component<IDropdownP, IDropdownS> implements IDropd
   public height = 0;
   public menu: React.RefObject<HTMLDivElement>;
   public toggler: React.RefObject<HTMLDivElement>;
-  
+
   constructor(props: IDropdownP) {
     super(props);
 
@@ -33,17 +33,16 @@ class Dropdown extends React.Component<IDropdownP, IDropdownS> implements IDropd
 
   public render() {
     const isOpen = this.state.isOpen;
-    const style = isOpen ? { height: `${ this.height }px` } : {} ;
     return (
       <div className = 'dropdown'>
         <div className = 'dropdown__toggle' onClick = { this.toggleMenu } ref = { this.toggler }>
           { this.props.children }
         </div>
         <div 
-          className = 'dropdown__menu'
-          ref = { this.menu } 
-          style = { style }>
+          className = { `dropdown__menu${isOpen ? ' dropdown__menu--active' : ''}` }
+          ref = { this.menu } >
           { this.renderMenu() }
+          <div className='dropdown__menu_triangle'/>
         </div>  
       </div>
     );
@@ -54,9 +53,22 @@ class Dropdown extends React.Component<IDropdownP, IDropdownS> implements IDropd
 
     return items.map((item, key) => {
       return (
-        <a className = 'dropdown__item' href={ item.a } key = { key }>{ item.name }</a>
+        <React.Fragment key = { key }>
+          <a className = 'dropdown__item' href = { item.link }>
+            { item.name }
+          </a>
+          { this.renderSeparator(item.isSeparate!) }
+        </React.Fragment>
       );
     });
+  }
+
+  private renderSeparator(isSeparated: boolean): any {
+    if (isSeparated) {
+      return(
+        <div className='dropdown__item-separator'/>
+      )
+    }
   }
 
   private toggleMenu = () => {
