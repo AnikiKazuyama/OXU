@@ -1,3 +1,0 @@
-interface IDropdown {
-  height: number
-}
