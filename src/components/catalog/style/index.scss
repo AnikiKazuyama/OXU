@@ -1,0 +1,10 @@
+@import '../../../assets/style/constants.scss';
+
+.catalog {
+    display: flex; 
+    margin-top: 20px;
+    &__list {
+        flex-grow: 1;
+        padding-left: $filterWidth;
+    }
+}
