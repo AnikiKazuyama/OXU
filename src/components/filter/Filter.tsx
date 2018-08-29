@@ -5,7 +5,7 @@ import './style/index.scss';
 class Filter extends React.Component {
   public render() {
     return(
-        <div className="filter">
+        <div className="filter clearfix">
            { this.boundChildren() }
         </div>
     );

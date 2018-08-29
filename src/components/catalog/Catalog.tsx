@@ -11,10 +11,10 @@ class Catalog extends React.Component<ICatalogP, {}> {
   public render() {
     return(
         <div className = 'catalog'>
-            <Sticky>
+            <Sticky offsetBottom = { 20 } offsetTop = { 76 }>
                 <Filter>
-                        { this.renderFilterItems() }
-                    </Filter>
+                    { this.renderFilterItems() }
+                </Filter>
             </Sticky>
             
             <div className="catalog__list">

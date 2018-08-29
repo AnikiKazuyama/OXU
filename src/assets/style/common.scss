@@ -20,4 +20,15 @@ input {
   margin: 0 auto;
 }
 
+.clearfix {
+    zoom: 1;
+    &::after, &::before {
+      display: block;
+      clear: both; 
+      content: "\a0 "; 
+      visibility: hidden; 
+      height: 0;
+    }
+}
+
 

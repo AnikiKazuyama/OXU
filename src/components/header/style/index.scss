@@ -3,6 +3,7 @@
 $headerHeight: 55px;
 
 .site-header {
+  z-index: 100;
   box-sizing: content-box;
   position: fixed;
   height: $headerHeight;

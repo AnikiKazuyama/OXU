@@ -2,4 +2,7 @@
 
 .filter {
     width: $filterWidth;
+    &__item:first-child .filter__title {
+        margin-top: 0;
+    }
 }
