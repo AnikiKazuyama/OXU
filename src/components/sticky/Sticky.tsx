@@ -6,6 +6,11 @@ import './style/index.scss';
 
 class Sticky extends React.Component<IStickyP, {}> {
 
+  public static defaultProps = { 
+    offsetBottom: 0,
+    offsetTop: 0
+   }
+
   public sticky: React.RefObject<HTMLDivElement>;
   public currentScrollPos: number;
   public stickedTop: boolean;
@@ -43,10 +48,10 @@ class Sticky extends React.Component<IStickyP, {}> {
           container.style.top = '';
       }
     } else {
-      const margin = container.style.marginTop ? parseInt(container.style.marginTop.replace('px', '')) : 0;
+      const margin = container.style.marginTop ? parseInt(container.style.marginTop.replace('px', ''), 10) : 0;
       if (this.currentScrollPos - window.pageYOffset < 0) {
           if (!this.stickedTop && !this.stickedBottom && 
-            window.pageYOffset + window.innerHeight - this.props.offsetTop - this.props.offsetBottom 
+            window.pageYOffset + window.innerHeight - this.props.offsetTop - this.props.offsetBottom
             > margin + container.firstElementChild.clientHeight) {
               console.log('Устанавливаем нижний стик');
               container.classList.add('sticky');
@@ -54,42 +59,37 @@ class Sticky extends React.Component<IStickyP, {}> {
               container.style.top = '';
               container.style.marginTop = '';
               this.stickedBottom = true;
-          } else if (this.stickedTop) {
+            } else if (this.stickedTop) {
               console.log('Отменяем верхний стик');
               container.style.marginTop = window.pageYOffset + container.offsetTop - this.props.offsetTop + 'px';
               container.classList.remove('sticky');
               container.style.top = '';
               this.stickedTop = false;
           }
-      } else {
+        } else {
           if (this.stickedBottom) {
-              console.log('Отменяем нижний стик');
-              container.style.marginTop = window.pageYOffset + container.offsetTop - this.props.offsetTop + 'px';
-              container.classList.remove('sticky');
-              container.style.bottom = '';
-              this.stickedBottom = false;
+            console.log('Отменяем нижний стик');
+            container.style.marginTop = window.pageYOffset + container.offsetTop - this.props.offsetTop + 'px';
+            container.classList.remove('sticky');
+            container.style.bottom = '';
+            this.stickedBottom = false;
           } else if (!this.stickedBottom && !this.stickedTop && window.pageYOffset < margin) {
-              console.log('Устанавливаем верхний стик');
-              container.classList.add('sticky');
-              container.style.top = this.props.offsetTop +'px';
-              container.style.bottom = '';
-              container.style.marginTop = '';
-              this.stickedTop = true;
-          } else if (window.pageYOffset == margin) {
-              console.log('Отменяем верхний стик');
-              container.classList.remove('sticky');
-              container.style.top = '';
-              this.stickedTop = false;
+            console.log('Устанавливаем верхний стик');
+            container.classList.add('sticky');
+            container.style.top = this.props.offsetTop +'px';
+            container.style.bottom = '';
+            container.style.marginTop = '';
+            this.stickedTop = true;
+          } else if (window.pageYOffset === margin) {
+            console.log('Отменяем верхний стик');
+            container.classList.remove('sticky');
+            container.style.top = '';
+            this.stickedTop = false;
           }
         }
       }
     this.currentScrollPos = window.pageYOffset;
   }
-
-  // static defaultProps = { 
-  //   offsetBottom: 0,
-  //   offsetTop: 0
-  //  }
 }
 
 export default Sticky;

@@ -14,6 +14,10 @@ module.exports  = {
     extensions: ['.js', '.jsx','.ts', '.tsx'],
   },
 
+  devServer: {
+    historyApiFallback: true,
+  },
+
   devtool: 'source-map', 
 
   module: {
@@ -43,7 +47,7 @@ module.exports  = {
       }, 
 
       {
-        test: /\.(woff(2)?|ttf|eot|png|svg|jpg|gif)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
             loader: 'file-loader',
             options: {
@@ -51,6 +55,42 @@ module.exports  = {
                 outputPath: 'fonts/'
             }
         }]
+      },
+
+      {
+        test: /\.(png|jpg|gif|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      },
+
+      {
+        test: /\.(ts|tsx)$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: { 
+          "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+          "baseUrl": "types",
+          "typeRoots": ["types"],
+          "rules": {
+            "max-line-length": { 
+              "options": [120]
+            },
+            "no-console": false
+          },
+          "linterOptions": {
+            "exclude": [
+              "config/**/*.js",
+              "node_modules/**/*.ts",
+              "coverage/lcov-report/*.js"
+            ]
+          }
+        }
       }
     ]
   }, 

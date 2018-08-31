@@ -18,168 +18,7 @@ class Catalog extends React.Component<ICatalogP, {}> {
             </Sticky>
             
             <div className="catalog__list">
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa harum nemo magni animi quod dolore sint porro ea labore?
-                </div>
+                { this.renderCatalogList(40) }
             </div>
         </div>
     );
@@ -194,6 +33,22 @@ class Catalog extends React.Component<ICatalogP, {}> {
                         key    = { key }/>
         );
     })
+  }
+
+  private renderCatalogList(count: number): JSX.Element[] {
+    const elems = [];
+
+    for (let i = 0; i < count; i++) {
+        elems.push(
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur 
+                sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa 
+                harum nemo magni animi quod dolore sint porro ea labore?
+            </div>
+        );
+    }
+
+    return elems;
   }
 
 }

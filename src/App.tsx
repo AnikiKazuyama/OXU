@@ -1,7 +1,10 @@
 import * as React from 'react';
 
+import { Switch, Route } from 'react-router-dom';
+
 import Main from './components/main';
 import HeaderContainer from './containers/headerContainer';
+import ReaderContainer from './containers/readerContainer';
 
 import './assets/style/common.scss';
 import './assets/style/fonts.scss';
@@ -11,10 +14,15 @@ import './assets/style/reset.scss';
 class App extends React.Component {
   public render() {
     return (
-      <React.Fragment>
-        <HeaderContainer/>
-        <Main />
-      </React.Fragment>
+      <Switch>
+        <Route exact path = '/read' component = { ReaderContainer }  />
+        <Route path = '/' component = { () => 
+          <React.Fragment>
+            <HeaderContainer/>
+            <Main/>   
+          </React.Fragment>
+        }/>
+      </Switch>
     );
   }
 }
