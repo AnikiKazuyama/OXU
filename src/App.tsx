@@ -15,7 +15,7 @@ class App extends React.Component {
   public render() {
     return (
       <Switch>
-        <Route exact path = '/read' component = { ReaderContainer }  />
+        <Route path = '/read/:mangaName/:number/:page' component = { ReaderContainer }  />
         <Route path = '/' component = { () => 
           <React.Fragment>
             <HeaderContainer/>

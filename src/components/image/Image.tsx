@@ -11,21 +11,38 @@ class Image extends React.Component<IImageP,IImageS> {
     public render() {
         const {
             className, 
-            src, 
-            alt
+            src = '', 
+            alt, 
         } = this.props;
-
+    
         return(
-            <img className = { className } src = { src } alt = { alt } ref = { this.image } onError = { this.handleImageError }/>
+            <img className = { className } 
+                 src = { src } 
+                 alt = { alt } 
+                 ref = { this.image } 
+                 onError = { this.handleImageError } 
+                 onLoad = { this.handleImageLoad }
+                 onClick = { this.props.onClick }/>
         );
     }
 
-    private handleImageError = (event:any) => {
+    private handleImageError = (event: any) => {
         const { defaultImg, errorClassName = '' } = this.props;
 
         event.target.src = defaultImg ? defaultImg : this.imageSrc;
         event.target.classList.add(errorClassName);
     }
+
+    private handleImageLoad = (event: any) => {
+        const { errorClassName = '', onLoad } = this.props;
+        
+        event.target.classList.remove(errorClassName);
+        
+        if (onload)
+            onLoad(event);
+    }
+
 }
+
 
 export default Image;

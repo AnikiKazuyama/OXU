@@ -4,6 +4,8 @@ interface IImageP {
     src: string, 
     alt: string, 
     defaultImg?: string
+    onClick: any, 
+    onLoad?: any
 }
 
 export default IImageP;
