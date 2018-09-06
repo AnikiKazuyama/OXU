@@ -63,7 +63,10 @@ const manga = {
 /* GET users listing. */
 router.get('/:name/:chapter', function(req, res, next) {
     const stringifyResponse = JSON.stringify(manga[req.params.name].chapters[req.params.chapter])
-    res.send(stringifyResponse);
+    if (stringifyResponse)
+        res.send(stringifyResponse);
+    else
+        res.status(404).send('not found');
 });
 
 module.exports = router;

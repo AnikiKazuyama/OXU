@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PerfectScrollbar from 'perfect-scrollbar';
 
 import ReaderImage from './readerImage';
 import IReaderP from './IReaderP'

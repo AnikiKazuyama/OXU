@@ -6,7 +6,7 @@ import IReaderContainerS from './IReactContainerS';
 
 import RestService from '../../utils/restServive';
 
-import { withRouter } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 
 import './style/index.scss';
 
@@ -26,7 +26,7 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
     };
 
     public componentDidMount() {
-        this.loadChapter();
+        this.loadChapter()
         this.initEvents();
     }
 
@@ -42,10 +42,6 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
     }
 
     public render() {
-        return( this.renderComponent() );
-    }
-
-    private renderComponent(): JSX.Element {
         const { match: { params : { page, mangaName, number } } } = this.props;
         if (this.state.isLoaded)
             return(
@@ -118,6 +114,7 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
 
     private async loadChapter() {
         const { match: { params : { mangaName, number } } } = this.props;
+        console.log(this.props)
         const result = await RestService.getChapter(mangaName, number);
         this.setState({
             chapter: {

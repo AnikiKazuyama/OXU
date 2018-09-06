@@ -1,0 +1,11 @@
+@import '../../../assets/style/constants.scss';
+
+.manga {
+    display: flex; 
+    flex-direction: column;
+    &__hero {
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+    }
+}

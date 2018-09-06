@@ -2,7 +2,7 @@ import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import IReaderImageP from './IReaderImageP';
-import ReadImage from '../../image';
+import ReadImage from '../../common/image';
 
 class ReaderImage extends React.Component<IReaderImageP,{}> {
 

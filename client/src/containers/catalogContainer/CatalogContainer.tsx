@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import Catalog from '../../components/catalog';
 import filterItems from '../../constants/catalogFilters';
+import { CatalogWithWrapper } from '../../components/catalog/Catalog';
 
 class CatalogContainer extends React.Component {
   public render() {
-    return <Catalog filterItems = { filterItems }/>
+    return <CatalogWithWrapper filterItems = { filterItems }/>
   }
 }
 

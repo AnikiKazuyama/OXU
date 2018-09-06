@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Dropdown from '../dropdown';
-import InputSearch from '../InputSearch';
+import Dropdown from '../common/dropdown';
+import InputSearch from '../common/InputSearch';
 import HeaderProfile from './headerProfile';
 
 import './style/index.scss';

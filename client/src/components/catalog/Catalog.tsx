@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Filter, FilterItem  } from '../filter';
-import Sticky from '../sticky';
+import { Filter, FilterItem  } from '../common/filter';
+import Sticky from '../common/sticky';
 
 import ICatalogP from './ICatalogP';
 
@@ -10,17 +10,17 @@ import './style/index.scss';
 class Catalog extends React.Component<ICatalogP, {}> {
   public render() {
     return(
-        <div className = 'catalog'>
-            <Sticky offsetBottom = { 20 } offsetTop = { 76 }>
-                <Filter>
-                    { this.renderFilterItems() }
-                </Filter>
-            </Sticky>
-            
-            <div className="catalog__list">
-                { this.renderCatalogList(40) }
+            <div className = 'catalog'>
+                <Sticky offsetBottom = { 20 } offsetTop = { 76 }>
+                    <Filter>
+                        { this.renderFilterItems() }
+                    </Filter>
+                </Sticky>
+                
+                <div className="catalog__list">
+                    { this.renderCatalogList(40) }
+                </div>
             </div>
-        </div>
     );
   }
 
@@ -53,4 +53,18 @@ class Catalog extends React.Component<ICatalogP, {}> {
 
 }
 
+class CatalogWithWrapper extends React.PureComponent<ICatalogP, {}> {
+    public render() {
+        return(
+            <div className = 'wrapper'>
+                <Catalog { ...this.props } />
+            </div>
+        );
+      }
+}
+
 export default Catalog;
+export { 
+    CatalogWithWrapper,
+    Catalog 
+};
