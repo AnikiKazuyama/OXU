@@ -8,8 +8,7 @@ interface IReaderP extends RouteComponentProps<any> {
     pageCount: number, 
     onImageClick(page:number, pageCount:number): void, 
     prevPage: number, 
-    nextPage: number, 
-    isVertical: boolean
+    nextPage: number
 }
 
 export default IReaderP;

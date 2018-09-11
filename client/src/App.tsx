@@ -13,6 +13,8 @@ import './assets/style/reset.scss';
 
 class App extends React.Component {
   public render() {
+    const {whyDidYouUpdate} = require('why-did-you-update');
+    whyDidYouUpdate(React);
     return (
       <Switch>
         <Route path = '/read' component = { ReaderRoute }  />

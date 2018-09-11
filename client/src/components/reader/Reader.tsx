@@ -40,7 +40,6 @@ class Reader extends React.Component<IReaderP,{}> {
                                       className = 'reader__image'
                                       errorClassName = 'reader__image--error'
                                       onClick = { this.handleImageClick }
-                                      isVertical = { this.props.isVertical }
                         /> 
                     </ReaderScroll>
                     <div className = 'reader__pages'>{ `${page}/${pageCount}` }</div>

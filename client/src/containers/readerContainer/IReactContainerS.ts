@@ -1,5 +1,4 @@
 interface IReaderContainerS {
-    isVertical: boolean
     isLoaded: boolean
     chapter: {
         title?: string,

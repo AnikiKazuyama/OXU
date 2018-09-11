@@ -6,7 +6,7 @@ import IReaderContainerS from './IReactContainerS';
 
 import RestService from '../../utils/restServive';
 
-import { Route, withRouter, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './style/index.scss';
 
@@ -15,7 +15,6 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
     private component: React.RefObject<HTMLDivElement> = React.createRef();
 
     public state = {
-        isVertical: false,
         isLoaded: false,
         chapter: {
             title: '',
@@ -34,15 +33,9 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
        this.removeEvents();
     }
 
-    componentWillReceiveProps(nextProps: IReaderContainerP) {
-        if (nextProps.location.pathname !== this.props.location.pathname)
-            this.setState({
-                isVertical: false
-            });
-    }
-
     public render() {
-        const { match: { params : { page, mangaName, number } } } = this.props;
+        const { match: { params : { page } } } = this.props;
+        console.log(123);
         if (this.state.isLoaded)
             return(
                 <Reader title = { this.state.chapter.title }
@@ -53,7 +46,6 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
                         onImageClick = { this.handleImageClick }
                         prevPage = { this.prevPage(page) }
                         nextPage = { this.nextPage(page, this.state.chapter.entry.length) }
-                        isVertical = { this.state.isVertical }
                 />
             );
         else return ( <div>ГРУЗИМСЯ</div> );
@@ -84,17 +76,8 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
         const pageCount = this.state.chapter.entry.length;
 
         switch(e.keyCode) {
-            case 32: 
-                this.setState(( prevState ) => {
-                     return {
-                         isVertical: !prevState.isVertical
-                     }
-                });
-                e.preventDefault();
-                e.stopPropagation();
-                break;
             case 37: 
-                history.push(`${this.prevPage(page)}`)
+                history.push(`${this.prevPage(page)}`);
                 break;
             case 39: 
                 history.push(`${this.nextPage(page, pageCount)}`);
@@ -114,7 +97,6 @@ class ReaderContainer extends React.Component<IReaderContainerP, IReaderContaine
 
     private async loadChapter() {
         const { match: { params : { mangaName, number } } } = this.props;
-        console.log(this.props)
         const result = await RestService.getChapter(mangaName, number);
         this.setState({
             chapter: {

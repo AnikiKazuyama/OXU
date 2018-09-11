@@ -2,16 +2,19 @@ import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import IReaderImageP from './IReaderImageP';
+import IReaderImageS from './IReaderImageS';
 import ReadImage from '../../common/image';
 
-class ReaderImage extends React.Component<IReaderImageP,{}> {
+class ReaderImage extends React.Component<IReaderImageP, IReaderImageS> {
 
     public state = {
         isWeb: false, 
-        isLoaded: false
+        isLoaded: false,
+        isVertical: false
     }
 
     public componentDidMount() {
+        this.initEvents();
         this.initImage(this.props.src);
     }
 
@@ -19,13 +22,19 @@ class ReaderImage extends React.Component<IReaderImageP,{}> {
         if (nextProps.location.pathname != this.props.location.pathname) {
             this.setState({
                 isWeb: false,
-                isLoaded: false
+                isLoaded: false,
+                isVertical: false
             });
             this.initImage(nextProps.src);
         }
     }
+
+    public componentWillUnmount() {
+        this.removeEvents();
+    }
+
     public render() {
-        const { isVertical } = this.props;
+        const { isVertical } = this.state;
         const className = this.props.className + (this.state.isWeb ? ' reader__image--web' : '') 
                                                + (isVertical ? ' reader__image--vertical' : '');
         if (this.state.isLoaded)
@@ -52,6 +61,28 @@ class ReaderImage extends React.Component<IReaderImageP,{}> {
         const image = new Image();
         image.onload = this.handleImageLoad;
         image.src = src;
+    }
+
+    private handleArrowPress = (e: KeyboardEvent) => {
+        switch(e.keyCode) {
+            case 32: 
+                this.setState(( prevState ) => {
+                     return {
+                         isVertical: !prevState.isVertical
+                     }
+                });
+                e.preventDefault();
+                e.stopPropagation();
+                break;
+        }
+    }
+
+    private initEvents() {
+        document.addEventListener('keydown', this.handleArrowPress);
+    }
+
+    private removeEvents() {
+        document.removeEventListener('keydown', this.handleArrowPress);
     }
 }
 

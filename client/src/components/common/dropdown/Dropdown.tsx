@@ -94,7 +94,7 @@ class Dropdown extends React.Component<IDropdownP, IDropdownS> implements IDropd
     const toggler = this.toggler.current!;
 
     if(!menu.contains(event.target) && 
-       !toggler.contains(event.target)) {
+       !toggler.contains(event.target) && this.state.isOpen) {
       this.setState({
         isOpen: false
       });
