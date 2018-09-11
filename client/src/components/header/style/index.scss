@@ -1,4 +1,5 @@
-@import '../../../assets/style/colors.scss';
+@import '../../../assets/style/colors';
+@import '../../../assets/style/constants.scss';
 
 $headerHeight: 55px;
 
@@ -8,7 +9,7 @@ $headerHeight: 55px;
   position: fixed;
   height: $headerHeight;
   width: 100%;
-  border-bottom: 1px solid #d4d9e3;
+  border-bottom: 1px solid $borderColor;
   background-color: #ffffff;
   &__logo {
     width: 220px;

@@ -1,0 +1,14 @@
+@import '../../../../assets/style/colors';
+
+.card {
+    border: 1px solid $borderColor;
+    background-color: #ffffff;
+    border-radius: 2px;
+    &__title {
+        padding: 8px 10px;
+        background-color: #f1f3f7;
+        text-align: center;
+        text-transform: uppercase;
+        color: $darkenTextColor;
+    }
+}

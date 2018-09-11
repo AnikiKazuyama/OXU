@@ -4,7 +4,7 @@ interface IImageP {
     src: string, 
     alt: string, 
     defaultImg?: string
-    onClick: any, 
+    onClick?: any, 
     onLoad?: any
 }
 
