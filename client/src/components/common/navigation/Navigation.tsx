@@ -36,7 +36,8 @@ class Navigation extends React.Component<INavigationP, INavigationS> {
         this.setState({
             activeId: id
         });
-        this.props.onClick(id);
+        
+        this.props.onNavigation(id);
     }
 }
 

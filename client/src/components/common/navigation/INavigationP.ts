@@ -1,6 +1,6 @@
 interface INavigationP {
     items: Array<{ id: string, text: string }>,
-    onClick: Function
+    onNavigation: Function
 }
 
 export default INavigationP;

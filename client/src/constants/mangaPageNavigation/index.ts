@@ -1,7 +1,18 @@
+import types from '../manga/mangaContentCenter/contentTypes';
+
 const items = [
-    { id: 'chapters', text: 'Chapters' },
-    { id: 'comments', text: 'Comments' },
-    { id: 'reviews', text: 'Reviews' }
+    { 
+        id: types.Chapters,
+        text: 'Chapters', 
+    },
+    { 
+        id: types.Comments,
+        text: 'Comments',
+    },
+    { 
+        id: types.Reviews,
+        text: 'Reviews',
+    }
 ];
 
 export default items;
