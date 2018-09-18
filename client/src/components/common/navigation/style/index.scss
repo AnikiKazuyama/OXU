@@ -1,0 +1,17 @@
+@import '../../../../assets/style/colors';
+
+.navigation {
+    &__item {
+        display: inline-block;
+        padding: 10px 35px;
+        color: $textColor;
+        transition: background-color 0.2s;
+        &:hover, &--active {
+            background-color: $hoverColor;
+        }
+        &:focus {
+            outline: none;
+            background-color: $hoverColor;
+        }
+    }
+}

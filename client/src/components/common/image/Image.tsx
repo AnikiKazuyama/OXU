@@ -30,13 +30,16 @@ class Image extends React.Component<IImageP,IImageS> {
         const { defaultImg, errorClassName = '' } = this.props;
 
         event.target.src = defaultImg ? defaultImg : this.imageSrc;
-        event.target.classList.add(errorClassName);
+
+        if (errorClassName != '')
+            event.target.classList.add(errorClassName);
     }
 
     private handleImageLoad = (event: any) => {
         const { errorClassName = '', onLoad } = this.props;
         
-        event.target.classList.remove(errorClassName);
+        if (errorClassName != '')
+            event.target.classList.remove(errorClassName);
         
         if (onload)
             onLoad(event);
