@@ -1,7 +1,30 @@
+@import '../../../../../assets/style/colors';
+
 .chapters { 
   padding: 15px;
 
+  &__accordion {
+    color: $textColor;
+  }
+
+  &__accordion-header {
+    border-bottom-color: $borderColor;
+  }
+
+  &__accordion-body-inner {
+    padding-left: 15px; 
+  }
+
   &__accordion:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__item:not(:last-child){
     margin-bottom: 10px;
   }
+
 }

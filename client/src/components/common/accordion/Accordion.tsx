@@ -10,27 +10,23 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
     expanded: this.props.expanded
   };
 
-  public componentDidMount() {
-    console.log(this.accordionBody.current.offsetHeight);
-  }
-
   public render() {
     const { title } = this.props; 
 
     return (
-      <div className={ this.accordionClassName() }>
-        <div className="accordion__header" onClick={ this.handleClick }>
-          <div className="accordion__title">
+      <div className={ this.getClassName('accordion') }>
+        <div className={ this.getClassName('header') } onClick={ this.handleClick }>
+          <div className={ this.getClassName('title') }>
             { title }
           </div>
-          <div className="accordion__button"></div>
+          <div className={ this.getClassName('button') }></div>
         </div>
         <div 
-          className={ this.bodyClassName() }
+          className={ this.getClassName('body') }
           style = { this.bodyStyle() }
           ref={ this.accordionBody }
         >
-          <div className="accordion__body-inner">
+          <div className={ this.getClassName('body-inner') }>
             { this.props.children }
           </div>
         </div>
@@ -39,7 +35,6 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
   }
 
   handleClick = () => {
-    console.log(this.state.expanded)
     this.setState((prevState) => {
       return {
         expanded: !prevState.expanded
@@ -47,17 +42,52 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
     });
   }
 
-  accordionClassName() {
-    const { className } = this.props;
+  getClassName(classFor: string) {
+    const CAPITAL_CLASS_NAME = 'ClassName';
 
-    return `accordion ${ className }`;
+    let key: string = '';
+    let className: string = '';
+
+    if(classFor === 'accordion') {
+      className = `accordion ${ this.props.className || '' }`;
+      return className;
+    } 
+      
+    if(classFor === 'body-inner') {
+      className = `accordion__body-inner ${ this.props.bodyInnerClassName || '' }`;
+      return className;
+    }
+
+    key = classFor + CAPITAL_CLASS_NAME;
+    className = `accordion__${ classFor } ${ this.props[key] || '' }`;
+
+    return className;
   }
 
-  bodyClassName() {
-    const { expanded } = this.state;
+  // accordionClassName() {
+  //   const { className } = this.props;
 
-    return `accordion__body ${ expanded ? 'expanded' : '' }`;
-  }
+  //   return `accordion ${ className }`;
+  // }
+
+  // headerClassName() {
+  //   const { titleClassName } = this.props;
+
+  //   return `accordion__header ${ titleClassName }`;
+  // }
+
+  // titleClassName() {
+  //   const { titleClassName } = this.props;
+
+  //   return `accordion__title ${ titleClassName }`;
+  // }
+
+  // bodyClassName() {
+  //   const { expanded } = this.state;
+  //   const { bodyClassName } = this.props;
+
+  //   return `accordion__body ${ expanded ? 'expanded' : '' } ${ bodyClassName }`;
+  // }
 
   bodyStyle() {
     const { accordionBody } = this;
@@ -73,7 +103,11 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
   static defaultProps = {
     title: 'Title', 
     expanded: false, 
-    className:''
+    className: '',
+    headerClassName: '', 
+    titleClassName: '',
+    bodyClassName: '', 
+    bodyInnerClassName: ''
   }
 }
 
