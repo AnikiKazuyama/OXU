@@ -64,31 +64,6 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
     return className;
   }
 
-  // accordionClassName() {
-  //   const { className } = this.props;
-
-  //   return `accordion ${ className }`;
-  // }
-
-  // headerClassName() {
-  //   const { titleClassName } = this.props;
-
-  //   return `accordion__header ${ titleClassName }`;
-  // }
-
-  // titleClassName() {
-  //   const { titleClassName } = this.props;
-
-  //   return `accordion__title ${ titleClassName }`;
-  // }
-
-  // bodyClassName() {
-  //   const { expanded } = this.state;
-  //   const { bodyClassName } = this.props;
-
-  //   return `accordion__body ${ expanded ? 'expanded' : '' } ${ bodyClassName }`;
-  // }
-
   bodyStyle() {
     const { accordionBody } = this;
     const { expanded } = this.state;

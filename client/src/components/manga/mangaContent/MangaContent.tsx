@@ -1,33 +1,16 @@
 import * as React from 'react';
 
+import MangaContentLeft from '../mangaContentLeft';
 import MangaContentCenter from '../mangaContentCenter';
-import MangaActions from '../mangaActions';
-import MangaInfo from '../mangaInfo';
-
-import SimilarMediaList from '../../common/similarMediaList';
-import Card from '../../common/card';
-
-import items from '../../../constants/mangaActions';
-import { chaptersAndVolumes, similarManga, mangaInfo } from './testData';
+import MangaContentRight from '../mangaContentRight';
 
 class MangaContent extends React.Component<{},{}> {
     public render() {
         return(
             <div className = "manga__content">
-                <div className="manga__content-left">
-                    <Card>
-                        <MangaActions items = { items } />
-                    </Card>
-                    <Card title = 'Ongoing'>
-                        <MangaInfo items = { mangaInfo } chAVol={ chaptersAndVolumes } />
-                    </Card>
-                </div>
+                <MangaContentLeft />
                 <MangaContentCenter />
-                <div className="manga__content-right">
-                    <Card title="Similar">
-                        <SimilarMediaList items={ similarManga }/>
-                    </Card>
-                </div>
+                <MangaContentRight />
             </div>
         );
     }
