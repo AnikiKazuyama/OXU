@@ -10,16 +10,19 @@ const volumes: { [propName: string]: any; } = {
         '908': {
           title: 'The Reverie Begins',
           number: 908, 
+          date: '20 dec 2018',
           url: 'http://readmanga.me/one_piece__A1bd05e/vol90/908?mtr='
         }, 
         '909': {
           title: 'Seppuku',
           number: 909, 
+          date: '13 dec 2018',
           url: 'http://readmanga.me/one_piece__A1bd05e/vol91/909?mtr='
         }, 
         '910': {
           title: 'Onward to Wano',
           number: 910, 
+          date: '6 dec 2018',
           url: 'http://readmanga.me/one_piece__A1bd05e/vol91/910?mtr='
         }
       }

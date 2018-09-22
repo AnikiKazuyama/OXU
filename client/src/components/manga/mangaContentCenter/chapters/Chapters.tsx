@@ -21,7 +21,7 @@ class Chapters extends React.Component {
     for( let key in volumesData ) {
       const volume:any = volumesData[key];
 
-      const title = `${ volume.title } Vol.${ volume.number }`;
+      const title = `Vol. ${ volume.number } «${ volume.title }»`;
       
       volumes.push(
         <Accordion 
@@ -44,7 +44,7 @@ class Chapters extends React.Component {
 
     for( let key in chapters.result ) {
       const chapter = chapters.result[key];
-      const title = `${ chapter.number } ${ chapter.title }`;
+      const title = `Ch. ${ chapter.number } ${ chapter.title }`;
     
       chaptersElements.push(
         <a 
@@ -53,6 +53,9 @@ class Chapters extends React.Component {
           key = { chapter.number }
         >
           { title }
+          <span className="chapters__date">
+            { chapter.date }
+          </span>
         </a>
       );
     }

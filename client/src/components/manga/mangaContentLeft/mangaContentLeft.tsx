@@ -3,6 +3,7 @@ import * as React from 'react'
 import Card from '../../common/card';
 import MangaActions from '../mangaActions';
 import MangaInfo from '../mangaInfo';
+import Sticky from '../../common/sticky';
 
 import items from '../../../constants/mangaActions';
 import { chaptersAndVolumes, mangaInfo } from '../mangaContent/testData';
@@ -23,4 +24,18 @@ class MangaContentLeft extends React.PureComponent {
   }
 }
 
+class StickyMangaContentLeft extends React.PureComponent {
+  render() {
+    return ( 
+      <Sticky>
+        <MangaContentLeft /> 
+      </Sticky>
+    )
+  }
+}
+
 export default MangaContentLeft;
+export {
+  MangaContentLeft,
+  StickyMangaContentLeft
+}

@@ -11,7 +11,10 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
   };
 
   public render() {
-    const { title } = this.props; 
+    const { title } = this.props;
+    const { expanded } = this.state;
+
+    const buttonText = expanded ? '-' : '+';
 
     return (
       <div className={ this.getClassName('accordion') }>
@@ -19,7 +22,7 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
           <div className={ this.getClassName('title') }>
             { title }
           </div>
-          <div className={ this.getClassName('button') }></div>
+          <div className={ this.getClassName('button') }> { buttonText } </div>
         </div>
         <div 
           className={ this.getClassName('body') }
@@ -49,7 +52,11 @@ class Accordion extends React.Component<IAccordionP & React.HTMLAttributes<HTMLD
     let className: string = '';
 
     if(classFor === 'accordion') {
-      className = `accordion ${ this.props.className || '' }`;
+      const { expanded } = this.state;
+
+      const mainClass = expanded ? 'accordion--expanded' : '';
+
+      className = `accordion ${ mainClass } ${ this.props.className || '' }`;
       return className;
     } 
       

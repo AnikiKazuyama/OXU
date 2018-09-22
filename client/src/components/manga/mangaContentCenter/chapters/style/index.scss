@@ -1,8 +1,6 @@
 @import '../../../../../assets/style/colors';
 
 .chapters { 
-  padding: 15px;
-
   &__accordion {
     color: $textColor;
   }
@@ -13,6 +11,7 @@
 
   &__accordion-body-inner {
     padding-left: 15px; 
+    border-left: 4px solid $textColor;
   }
 
   &__accordion:not(:last-child) {
@@ -20,11 +19,17 @@
   }
 
   &__item {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px dotted $borderColor;
   }
 
-  &__item:not(:last-child){
-    margin-bottom: 10px;
+  &__date {
+    font-size: 11px;
+    opacity: 0.7;
   }
 
 }

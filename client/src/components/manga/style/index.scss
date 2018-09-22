@@ -69,6 +69,10 @@
             }
         }
     }
+    &__main {
+        padding: 30px;
+        min-height: 400px;
+    }
     &__content {
         display: flex;
         width: 100%;
@@ -76,6 +80,7 @@
         &-center {
             flex-grow: 1;
             margin: 0 20px;
+            // padding-left: 210px;
         }
         &-left > .card:not(:last-child), 
         &-right > .card:not(:last-child), 

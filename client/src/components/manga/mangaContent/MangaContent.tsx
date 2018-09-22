@@ -10,7 +10,6 @@ class MangaContent extends React.Component<{},{}> {
             <div className = "manga__content">
                 <MangaContentLeft />
                 <MangaContentCenter />
-                <MangaContentRight />
             </div>
         );
     }
