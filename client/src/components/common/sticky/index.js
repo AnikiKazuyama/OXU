@@ -1,3 +1,1 @@
-import Sticky from './Sticky';
-
-export default Sticky;
+export { default } from './Sticky';

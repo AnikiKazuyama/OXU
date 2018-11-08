@@ -1,3 +1,1 @@
-import ReaderImage from './ReaderImage';
-
-export default ReaderImage;
+export { default } from './ReaderImage';

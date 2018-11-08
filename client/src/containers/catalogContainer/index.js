@@ -1,4 +1,1 @@
-import CatalogContainer from './CatalogContainer';
-
-
-export default CatalogContainer;
+export { default } from './CatalogContainer';

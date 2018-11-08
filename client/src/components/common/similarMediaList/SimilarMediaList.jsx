@@ -1,25 +1,22 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import SimilarMedia from './similarMedia';
 
 import './style/index.scss';
 
-class SimilarMediaList extends React.Component {
-    
-    render() {
-        return (
-            <div className="similar-media">
-                { this.renderList() }
-            </div>
-        );
-    }
+class SimilarMediaList extends Component {
+  renderList() {
+    return this.props.items.map(item => (
+      <SimilarMedia key={item.title} {...item} />
+    ));
+  }
 
-    renderList() {
-        return this.props.items.map((item, index) => {
-            return (
-                <SimilarMedia key={ index } { ...item }/>
-            );
-        })
-    }
+  render() {
+    return (
+      <div className="similar-media">
+        { this.renderList() }
+      </div>
+    );
+  }
 }
 
 export default SimilarMediaList;

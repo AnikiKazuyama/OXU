@@ -6,4 +6,4 @@ export {
   FilterItem
 };
 
-export default './Filter';
+export { default } from './Filter';

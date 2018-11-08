@@ -1,3 +1,1 @@
-import StyleUtils from './StyleUtils';
-
-export default StyleUtils;
+export { default } from './StyleUtils';

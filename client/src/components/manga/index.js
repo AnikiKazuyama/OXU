@@ -1,3 +1,1 @@
-import Manga from './Manga';
-
-export default Manga;
+export { default } from './Manga';

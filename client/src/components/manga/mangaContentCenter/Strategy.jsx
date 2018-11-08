@@ -1,20 +1,40 @@
-import * as React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Chapters from './chapters';
 import Reviews from './reviews';
 
-import content from '../../../constants/manga/mangaContentCenter/contentTypes';
+import Types from '../../../constants/manga/mangaContentCenter';
 
-const Strategy = {
-  [content.Comments]: (props) => {
-    return (<div className = { props.className }>Comments</div>)
-  }, 
-  [content.Chapters]: (props) => {
-    return (<Chapters { ...props } />)
-  },
-  [content.Reviews]: (props) => {
-    return (<Reviews { ...props } />)
-  }
+const MangaComments = props => (
+  <div className={props.className}>Comments</div>
+);
+
+MangaComments.propTypes = {
+  className: PropTypes.string
 };
 
-export default Strategy;
+MangaComments.defaultProps = {
+  className: ''
+};
+
+class MangaContentFactory {
+  get(type) {
+    if (Object.prototype.hasOwnProperty.call(Types, type)) {
+      if (type === Types.comments) {
+        return MangaComments;
+      }
+
+      if (type === Types.chapters) {
+        return props => <Chapters {...props} />;
+      }
+
+      if (type === Types.reviews) {
+        return props => <Reviews {...props} />;
+      }
+    }
+    return () => null;
+  }
+}
+
+export default MangaContentFactory;

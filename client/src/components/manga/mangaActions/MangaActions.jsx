@@ -1,30 +1,39 @@
-import * as React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { ButtonMangaAction as Button } from '../../common/button';
 
-class MangaActions extends React.Component {
-    render() {
-        return(
-            <React.Fragment>
-                { this.renderItems() }
-            </React.Fragment>
-        );
-    }
+class MangaActions extends Component {
+  // handleClick(id) {
+  //   //TODO
+  // }
+  static defaultProps = {
+    items: []
+  }
 
-    renderItems() {
-        return this.props.items.map((item, index) => {
-            return <Button 
-                        as="a"
-                        onClick={ () => this.handleClick(item.id) }
-                        key={ index } >
-                            { item.text }
-                    </Button>
-        });
-    }
+  static propTypes = {
+    items: PropTypes.arrayOf
+  }
 
-    handleClick(id) {
-        //TODO
-    }
+  renderItems() {
+    return this.props.items.map(item => (
+      <Button
+        as="a"
+        onClick={() => this.handleClick(item.id)}
+        key={item.id}
+      >
+        { item.text }
+      </Button>
+    ));
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        { this.renderItems() }
+      </React.Fragment>
+    );
+  }
 }
 
 export default MangaActions;

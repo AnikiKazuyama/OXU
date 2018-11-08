@@ -1,8 +1,6 @@
-import MangaContentLeft from './mangaContentLeft';
 import { StickyMangaContentLeft } from './mangaContentLeft';
 
-export default MangaContentLeft;
+export { default } from './mangaContentLeft';
 export {
-    MangaContentLeft,
-    StickyMangaContentLeft
-  }
+  StickyMangaContentLeft
+};

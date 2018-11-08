@@ -1,3 +1,1 @@
-import ReaderRoute from './ReaderRoute';
-
-export default ReaderRoute;
+export { default } from './ReaderRoute';

@@ -1,3 +1,1 @@
-import MangaInfo from './MangaInfo';
-
-export default MangaInfo;
+export { default } from './MangaInfo';

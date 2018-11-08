@@ -1,32 +1,27 @@
-import * as React from 'react';
+import React from 'react';
 
 import MangaContentLeft from '../mangaContentLeft';
 import MangaContentCenter from '../mangaContentCenter';
-import MangaContentRight from '../mangaContentRight';
+// import MangaContentRight from '../mangaContentRight';
 
-class MangaContent extends React.Component {
-    render() {
-        return(
-            <div className = "manga__content">
-                <MangaContentLeft />
-                <MangaContentCenter />
-            </div>
-        );
-    }
+function MangaContent() {
+  return (
+    <div className="manga__content">
+      <MangaContentLeft />
+      <MangaContentCenter />
+    </div>
+  );
 }
 
-class MangaContentWithWrapper extends React.Component {
-    render() {
-        return (
-            <div className="wrapper">
-                <MangaContent { ...this.props } />
-            </div>
-        );
-    }
+function MangaContentWithWrapper(props) {
+  return (
+    <div className="wrapper">
+      <MangaContent {...props} />
+    </div>
+  );
 }
 
 export default MangaContent;
-
 export {
-    MangaContentWithWrapper
-}
+  MangaContentWithWrapper
+};

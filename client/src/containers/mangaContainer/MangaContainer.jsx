@@ -1,14 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 
 import Manga from '../../components/manga';
-import * as Image from '../../assets/img/manga.png';
+import Image from '../../assets/img/manga.png';
 
-class MangaContainer extends React.Component {
-    render() {
-        return(
-            <Manga heroUrl = { Image }/>
-        );
-    }
+function MangaContainer() {
+  return (
+    <Manga heroUrl={Image} />
+  );
 }
 
 export default MangaContainer;

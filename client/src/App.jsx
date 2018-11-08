@@ -1,4 +1,4 @@
-import React, { PureCompontent } from 'react';
+import React, { Fragment } from 'react';
 import WDYU from 'why-did-you-update';
 import { Switch, Route } from 'react-router-dom';
 
@@ -11,27 +11,25 @@ import './assets/style/fonts.scss';
 import './assets/style/normalize.scss';
 import './assets/style/reset.scss';
 
-class App extends PureCompontent {
-  render() {
-    WDYU(React);
-    return (
-      <Switch>
-        <Route
-          path="/read"
-          component={ReaderRoute}
-        />
-        <Route
-          path="/"
-          component={() => (
-            <React.Fragment>
-              <HeaderContainer />
-              <Main />
-            </React.Fragment>
-          )}
-        />
-      </Switch>
-    );
-  }
+function App() {
+  WDYU(React);
+  return (
+    <Switch>
+      {/* <Route
+        path="/read"
+        component={ReaderRoute}
+      /> */}
+      <Route
+        path="/"
+        component={() => (
+          <Fragment>
+            <HeaderContainer />
+            <Main />
+          </Fragment>
+        )}
+      />
+    </Switch>
+  );
 }
 
 export default App;

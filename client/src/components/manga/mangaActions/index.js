@@ -1,3 +1,1 @@
-import MangaActions from './MangaActions';
-
-export default MangaActions;
+export { default } from './MangaActions';

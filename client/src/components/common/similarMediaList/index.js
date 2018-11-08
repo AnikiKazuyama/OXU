@@ -1,3 +1,1 @@
-import SimilarMediaList from './SimilarMediaList';
-
-export default SimilarMediaList;
+export { default } from './SimilarMediaList';

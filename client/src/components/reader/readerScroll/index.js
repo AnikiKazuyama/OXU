@@ -1,3 +1,1 @@
-import ReaderScroll from './ReaderScroll';
-
-export default ReaderScroll;
+export { default } from './ReaderScroll';

@@ -1,5 +1,5 @@
 const classes = {
-    read: 'read-mode'
+  read: 'read-mode'
 };
 
 export default classes;

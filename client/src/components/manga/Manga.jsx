@@ -1,20 +1,30 @@
-import * as React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import MangaHeader from './mangaHeader';
 import { MangaContentWithWrapper } from './mangaContent';
 
 import './style/index.scss';
 
-class Manga extends React.Component {
-    render() {
-        return(
-            <div className = 'manga'>
-                <div className = 'manga__hero' style = { { backgroundImage: `url(${ this.props.heroUrl }` } }></div>
-                <MangaHeader />
-                <MangaContentWithWrapper/>
-            </div>
-        );
-    }
+function Manga(props) {
+  return (
+    <div className="manga">
+      <div
+        className="manga__hero"
+        style={{ backgroundImage: `url(${props.heroUrl}` }}
+      />
+      <MangaHeader />
+      <MangaContentWithWrapper />
+    </div>
+  );
 }
+
+Manga.defaultProps = {
+  heroUrl: ''
+};
+
+Manga.propTypes = {
+  heroUrl: PropTypes.string
+};
 
 export default Manga;

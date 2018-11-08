@@ -1,3 +1,1 @@
-import MangaHeader from './MangaHeader';
-
-export default MangaHeader;
+export { default } from './MangaHeader';

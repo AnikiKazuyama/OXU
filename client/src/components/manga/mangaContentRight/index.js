@@ -1,3 +1,1 @@
-import MangaContentRight from './mangaContentRight';
-
-export default MangaContentRight;
+export { default } from './mangaContentRight';

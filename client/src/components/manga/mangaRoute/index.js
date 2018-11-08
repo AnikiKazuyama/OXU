@@ -1,3 +1,1 @@
-import MangaRoute from './MangaRoute';
-
-export default MangaRoute;
+export { default } from './MangaRoute';

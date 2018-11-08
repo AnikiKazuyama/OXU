@@ -1,6 +1,6 @@
 import { ButtonTag, ButtonMangaAction } from './Button';
 
-export default './Button';
+export { default } from './Button';
 export {
   ButtonTag,
   ButtonMangaAction

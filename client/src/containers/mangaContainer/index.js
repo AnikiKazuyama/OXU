@@ -1,3 +1,1 @@
-import MangaContainer from './MangaContainer';
-
-export default MangaContainer;
+export { default } from './MangaContainer';

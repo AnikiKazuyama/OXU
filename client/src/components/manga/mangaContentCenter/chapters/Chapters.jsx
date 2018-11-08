@@ -1,56 +1,43 @@
-import * as React from 'react'
+import React, { Component } from 'react';
 
 import Accordion from '../../../common/accordion';
 
+import volumesData from './testData';
 import './style/index.scss';
 
-import volumesData from './testData';
-
-class Chapters extends React.Component {
-  render() {
-    return (
-      <div className="chapters">
-        { this.renderVolumes() }
-      </div>
-    )
-  }
-
+class Chapters extends Component {
   renderVolumes() {
-    let volumes = [];
+    const volumes = [];
+    Object.keys(volumesData).forEach((volume) => {
+      const title = `Vol. ${volume.number} «${volume.title}»`;
 
-    for( let key in volumesData ) {
-      const volume = volumesData[key];
-
-      const title = `Vol. ${ volume.number } «${ volume.title }»`;
-      
       volumes.push(
-        <Accordion 
-          className="chapters__accordion" 
+        <Accordion
+          className="chapters__accordion"
           headerClassName="chapters__accordion-header"
           bodyInnerClassName="chapters__accordion-body-inner"
-          title={ title }
-          key={ volume.number }
+          title={title}
+          key={volume.number}
         >
           { this.renderChapters(volume.chapters) }
         </Accordion>
       );
-    }
+    });
 
     return volumes;
   }
-  
-  renderChapters(chapters) {
-    let chaptersElements = [];
 
-    for( let key in chapters.result ) {
-      const chapter = chapters.result[key];
-      const title = `Ch. ${ chapter.number } ${ chapter.title }`;
-    
+  renderChapters(chapters) {
+    const chaptersElements = [];
+
+    Object.keys(chapters.result).forEach((chapter) => {
+      const title = `Ch. ${chapter.number} ${chapter.title}`;
+
       chaptersElements.push(
-        <a 
+        <a
           className="chapters__item"
-          href={ chapter.url } 
-          key = { chapter.number }
+          href={chapter.url}
+          key={chapter.number}
         >
           { title }
           <span className="chapters__date">
@@ -58,11 +45,18 @@ class Chapters extends React.Component {
           </span>
         </a>
       );
-    }
+    });
 
     return chaptersElements;
   }
 
+  render() {
+    return (
+      <div className="chapters">
+        { this.renderVolumes() }
+      </div>
+    );
+  }
 }
 
 export default Chapters;

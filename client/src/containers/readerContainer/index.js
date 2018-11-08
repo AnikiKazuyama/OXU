@@ -1,3 +1,1 @@
-import ReaderContainer from './ReaderContainer';
-
-export default ReaderContainer;
+export { default } from './ReaderContainer';

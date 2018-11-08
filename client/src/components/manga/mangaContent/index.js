@@ -1,7 +1,6 @@
-import MangaContent, { MangaContentWithWrapper } from './MangaContent';
+import { MangaContentWithWrapper } from './MangaContent';
 
-export default MangaContent;
+export { default } from './MangaContent';
 export {
-    MangaContent, 
-    MangaContentWithWrapper, 
-}
+  MangaContentWithWrapper
+};

@@ -1,51 +1,77 @@
-import * as React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class Image extends React.Component {
+import clientDefaultImage from './img/default.png';
 
-    constructor(props) {
-        super(props);
+class Image extends Component {
+  static defaultProps = {
+    errorClassName: '',
+    className: '',
+    src: '',
+    alt: '',
+    defaultImg: clientDefaultImage,
+    onLoad: () => {},
+    onClick: () => {}
+  }
 
-        this.image = React.createRef();
-        this.imageSrc = require('./img/default.png');
+  static propTypes = {
+    defaultImg: PropTypes.string,
+    errorClassName: PropTypes.string,
+    className: PropTypes.string,
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    onLoad: PropTypes.func,
+    onClick: PropTypes.func
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.image = React.createRef();
+  }
+
+  handleImageError = (e) => {
+    const event = e;
+    const { defaultImg, errorClassName } = this.props;
+
+    event.target.src = defaultImg;
+
+    if (errorClassName !== '') {
+      event.target.classList.add(errorClassName);
+    }
+  }
+
+  handleImageLoad = (e) => {
+    const event = e;
+    const { errorClassName, onLoad } = this.props;
+
+    if (errorClassName !== '') {
+      event.target.classList.remove(errorClassName);
     }
 
-    render() {
-        const {
-            className, 
-            src = '', 
-            alt, 
-        } = this.props;
-    
-        return(
-            <img className = { className } 
-                 src = { src } 
-                 alt = { alt } 
-                 ref = { this.image } 
-                 onError = { this.handleImageError } 
-                 onLoad = { this.handleImageLoad }
-                 onClick = { this.props.onClick }/>
-        );
-    }
+    onLoad(event);
+  }
 
-    handleImageError = (event) => {
-        const { defaultImg, errorClassName = '' } = this.props;
+  render() {
+    const {
+      className,
+      src,
+      alt
+    } = this.props;
 
-        event.target.src = defaultImg ? defaultImg : this.imageSrc;
-
-        if (errorClassName != '')
-            event.target.classList.add(errorClassName);
-    }
-
-    handleImageLoad = (event) => {
-        const { errorClassName = '', onLoad } = this.props;
-        
-        if (errorClassName != '')
-            event.target.classList.remove(errorClassName);
-        
-        if (onload)
-            onLoad(event);
-    }
-
+    return (
+      <div onClick={this.props.onClick} tabIndex="0" role="button">
+        <img
+          className={className}
+          src={src}
+          alt={alt}
+          ref={this.image}
+          onError={this.handleImageError}
+          onLoad={this.handleImageLoad}
+        />
+      </div>
+    );
+  }
 }
 
 
