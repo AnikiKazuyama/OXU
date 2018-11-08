@@ -1,11 +1,10 @@
 {
   "presets": [
     [
-      "@babel/preset-typescript",
-        {
-          "isTSX": true
-        } 
-    ], 
-    "@babel/preset-env"
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry"
+      }
+    ]
   ]
 }
