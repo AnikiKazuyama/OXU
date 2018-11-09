@@ -23,8 +23,7 @@ class MangaContentCenter extends Component {
 
   renderSubComponent = () => {
     const { activeContent } = this.state;
-
-    return ContentStrategy[activeContent];
+    return ContentStrategy.get(activeContent);
   }
 
   render() {

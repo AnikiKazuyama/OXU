@@ -2,15 +2,15 @@ import types from '../manga/mangaContentCenter';
 
 const items = [
   {
-    id: types.Chapters,
+    id: types.chapters,
     text: 'Chapters'
   },
   {
-    id: types.Comments,
+    id: types.comments,
     text: 'Comments'
   },
   {
-    id: types.Reviews,
+    id: types.reviews,
     text: 'Reviews'
   }
 ];

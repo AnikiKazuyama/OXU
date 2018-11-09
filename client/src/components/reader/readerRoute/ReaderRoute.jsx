@@ -20,9 +20,9 @@ ReaderRoute.defaultProps = {
 };
 
 ReaderRoute.propTypes = {
-  match: {
-    url: PropTypes.string
-  }
+  match: PropTypes.shape({
+    url: ''
+  })
 };
 
 export default ReaderRoute;

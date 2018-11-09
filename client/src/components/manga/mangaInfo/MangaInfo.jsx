@@ -5,17 +5,21 @@ class MangaInfo extends Component {
   static defaultProps = {
     items: [],
     chAVol: {
-      ch: '',
-      vol: ''
+      ch: 0,
+      vol: 0
     }
   }
 
   static propTypes = {
-    items: PropTypes.arrayOf,
-    chAVol: {
-      ch: PropTypes.string,
-      vol: PropTypes.string
-    }
+    items: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string
+
+    })),
+    chAVol: PropTypes.shape({
+      ch: PropTypes.number,
+      vol: PropTypes.number
+    })
   }
 
   renderInfo() {

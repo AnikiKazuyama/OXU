@@ -33,7 +33,7 @@ class FilterFactory {
         );
       }
 
-      if (type === this.types.slider) {
+      if (type === this.types.checkbox) {
         return FilterListItem;
       }
     }
@@ -42,4 +42,4 @@ class FilterFactory {
   }
 }
 
-export default FilterFactory;
+export default new FilterFactory();

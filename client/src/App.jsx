@@ -15,10 +15,10 @@ function App() {
   WDYU(React);
   return (
     <Switch>
-      {/* <Route
+      <Route
         path="/read"
         component={ReaderRoute}
-      /> */}
+      />
       <Route
         path="/"
         component={() => (

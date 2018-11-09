@@ -26,15 +26,15 @@ class Reader extends Component {
   static propTypes = {
     title: PropTypes.string,
     src: PropTypes.string,
-    nextPage: PropTypes.string,
-    prevPage: PropTypes.string,
+    nextPage: PropTypes.number,
+    prevPage: PropTypes.number,
     pageCount: PropTypes.number,
     onImageClick: PropTypes.func,
-    match: {
-      params: {
-        page: PropTypes.number
-      }
-    }
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        page: PropTypes.string
+      })
+    })
   }
 
   componentDidMount() {
@@ -74,7 +74,7 @@ class Reader extends Component {
             <ReaderImage
               alt={title}
               src={src}
-              classNam="reader__image"
+              className="reader__image"
               errorClassName="reader__image--error"
               onClick={this.handleImageClick}
             />

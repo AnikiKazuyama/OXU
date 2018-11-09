@@ -19,7 +19,7 @@ MangaComments.defaultProps = {
 };
 
 class MangaContentFactory {
-  get(type) {
+  static get(type) {
     if (Object.prototype.hasOwnProperty.call(Types, type)) {
       if (type === Types.comments) {
         return MangaComments;

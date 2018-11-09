@@ -11,7 +11,16 @@ class FilterItem extends Component {
 
   static propTypes = {
     title: PropTypes.string,
-    fields: PropTypes.arrayOf
+    fields: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.string,
+        result: PropTypes.shape({
+          isChecked: PropTypes.bool
+        }),
+        name: PropTypes.string,
+        value: PropTypes.string
+      })
+    )
   }
 
   renderFields() {
@@ -19,6 +28,7 @@ class FilterItem extends Component {
 
     return fields.map((oneField) => {
       const Item = FilterFactory.get(oneField.type);
+
       return (<Item name={oneField.name} key={oneField.name} />);
     });
   }

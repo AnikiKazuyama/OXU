@@ -10,7 +10,9 @@ import './style/index.scss';
 
 class ReaderContainer extends Component {
   static defaultProps = {
-    history: null,
+    history: {
+      push: () => {}
+    },
     match: {
       params: {
         page: 0
@@ -19,12 +21,14 @@ class ReaderContainer extends Component {
   }
 
   static propTypes = {
-    history: PropTypes.objectOf,
-    match: {
-      params: {
-        page: PropTypes.number
-      }
-    }
+    history: PropTypes.shape({
+      push: PropTypes.func
+    }),
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        page: PropTypes.string
+      })
+    })
   }
 
   constructor() {
@@ -50,12 +54,6 @@ class ReaderContainer extends Component {
 
   componentWillUnmount() {
     this.removeEvents();
-  }
-
-  onWheel = (e) => {
-    this.component.current.scrollBy({
-      top: -e.wheelDelta
-    });
   }
 
   handleImageClick = (page, pageCount) => {
@@ -89,12 +87,10 @@ class ReaderContainer extends Component {
 
   initEvents() {
     document.addEventListener('keydown', this.handleArrowPress);
-    document.addEventListener('wheel', this.onWheel);
   }
 
   removeEvents() {
     document.removeEventListener('keydown', this.handleArrowPress);
-    document.removeEventListener('wheel', this.onWheel);
   }
 
   async loadChapter() {

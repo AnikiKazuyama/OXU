@@ -58,9 +58,8 @@ class Image extends Component {
       src,
       alt
     } = this.props;
-
     return (
-      <div onClick={this.props.onClick} tabIndex="0" role="button">
+      <span onClick={this.props.onClick} tabIndex="0" role="button">
         <img
           className={className}
           src={src}
@@ -69,7 +68,7 @@ class Image extends Component {
           onError={this.handleImageError}
           onLoad={this.handleImageLoad}
         />
-      </div>
+      </span>
     );
   }
 }

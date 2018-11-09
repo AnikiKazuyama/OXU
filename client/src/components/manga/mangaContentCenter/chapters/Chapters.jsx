@@ -8,7 +8,8 @@ import './style/index.scss';
 class Chapters extends Component {
   renderVolumes() {
     const volumes = [];
-    Object.keys(volumesData).forEach((volume) => {
+    Object.keys(volumesData).forEach((key) => {
+      const volume = volumesData[key];
       const title = `Vol. ${volume.number} «${volume.title}»`;
 
       volumes.push(
@@ -30,7 +31,8 @@ class Chapters extends Component {
   renderChapters(chapters) {
     const chaptersElements = [];
 
-    Object.keys(chapters.result).forEach((chapter) => {
+    Object.keys(chapters.result).forEach((key) => {
+      const chapter = chapters.result[key];
       const title = `Ch. ${chapter.number} ${chapter.title}`;
 
       chaptersElements.push(

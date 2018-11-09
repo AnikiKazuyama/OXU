@@ -10,7 +10,10 @@ class Dropdown extends Component {
   }
 
   static propTypes = {
-    items: PropTypes.arrayOf,
+    items: PropTypes.arrayOf(PropTypes.shape({
+      link: PropTypes.string,
+      name: PropTypes.string
+    })),
     children: PropTypes.node
   }
 

@@ -12,7 +12,10 @@ class MangaActions extends Component {
   }
 
   static propTypes = {
-    items: PropTypes.arrayOf
+    items: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string,
+      text: PropTypes.string
+    }))
   }
 
   renderItems() {

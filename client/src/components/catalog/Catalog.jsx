@@ -12,7 +12,21 @@ class Catalog extends PureComponent {
   }
 
   static propTypes = {
-    filterItems: PropTypes.arrayOf
+    filterItems: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        fields: PropTypes.arrayOf(
+          PropTypes.shape({
+            type: PropTypes.string,
+            result: PropTypes.shape({
+              isChecked: PropTypes.bool
+            }),
+            name: PropTypes.string,
+            value: PropTypes.string
+          })
+        )
+      })
+    )
   }
 
   constructor() {
@@ -35,8 +49,10 @@ class Catalog extends PureComponent {
     const elems = [];
 
     for (let i = 0; i < this.filtercount; i++) {
+      const key = i;
+
       elems.push(
-        <div>
+        <div key={key}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur
           sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa
           harum nemo magni animi quod dolore sint porro ea labore?
