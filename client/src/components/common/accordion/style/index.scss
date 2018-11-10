@@ -1,16 +1,20 @@
 @import '../../../../assets/style/colors';
 
-$buttonSize: 20px;
+$buttonSize: 21px;
 
 .accordion {
   &--expanded &__header {
     border-color: transparent;
+  }
+  &--expanded &__button {
+    background-image: url("../../../../assets/img/minus.svg");
   }
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 0 8px 5px;
+    font-size: 14px;
     border-bottom: 1px solid black;
     cursor: pointer;
     user-select: none;
@@ -22,12 +26,16 @@ $buttonSize: 20px;
     width: $buttonSize; 
     height: $buttonSize;
     background-color: $textColor;
+    background-image: url("../../../../assets/img/plus.svg");
+    background-size: 9px;
+    background-position: 6px;
+    background-repeat: no-repeat;
     color: white;
     font-weight: 100;
     text-align: center;
     line-height: $buttonSize;
     opacity: 0.4;
-    transition: opacity ease-in-out 0.2s;
+    transition: opacity ease-in-out 0.2s, background-image ease-in-out 0.2s;
     cursor: pointer;
   }
   &__button:hover {
@@ -39,5 +47,9 @@ $buttonSize: 20px;
   }
   &__body-inner {
     margin-top: 15px;
+  }
+  &__title {
+    font-weight: 100;
+    font-size: 16px;
   }
 }

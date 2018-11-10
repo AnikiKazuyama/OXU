@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import ReaderScroll from '../readerScroll';
 
 import ReadImage from '../../common/image';
 
@@ -73,12 +74,16 @@ class ReaderImage extends Component {
                                             + (isVertical ? ' reader__image--vertical' : '');
     if (this.state.isLoaded) {
       return (
-        <ReadImage {...this.props} className={className} />
+        <ReaderScroll>
+          <ReadImage {...this.props} className={className} />
+        </ReaderScroll>
       );
     }
 
     return (
-      <div className="reader__image-loader" />
+      <ReaderScroll>
+        <div className="reader__image-loader" />
+      </ReaderScroll>
     );
   }
 }

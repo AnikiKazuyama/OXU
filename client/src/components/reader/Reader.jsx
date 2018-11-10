@@ -3,7 +3,6 @@ import { withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import ReaderImage from './readerImage';
-import ReaderScroll from './readerScroll';
 import StyleUtils from '../../utils/styleUtils';
 
 import './style/index.scss';
@@ -70,15 +69,13 @@ class Reader extends Component {
           <div className="reader__arrow reader__arrow--left" />
         </Link>
         <div className="reader__container">
-          <ReaderScroll>
-            <ReaderImage
-              alt={title}
-              src={src}
-              className="reader__image"
-              errorClassName="reader__image--error"
-              onClick={this.handleImageClick}
-            />
-          </ReaderScroll>
+          <ReaderImage
+            alt={title}
+            src={src}
+            className="reader__image"
+            errorClassName="reader__image--error"
+            onClick={this.handleImageClick}
+          />
           <div className="reader__pages">{ `${page}/${pageCount}` }</div>
         </div>
 

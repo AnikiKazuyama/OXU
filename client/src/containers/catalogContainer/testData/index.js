@@ -2,7 +2,7 @@ export default {
   result: [
     {
       title: 'Boku no piku',
-      genres: ['Hentai', 'Futanari', 'Handjob'],
+      genres: ['Hentai', 'Futanari', 'Handjob', 'Fighting', 'Fantasy', 'Fighting', 'Fantasy', 'Fighting', 'Fantasy', 'Fighting', 'Fantasy'],
       social: [
         {
           icon: 'views',

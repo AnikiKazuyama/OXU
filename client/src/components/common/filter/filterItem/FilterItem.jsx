@@ -38,9 +38,9 @@ class FilterItem extends Component {
 
     return (
       <div className="filter__item">
-        <h3 className="filter__title">
+        <span className="filter__title">
           { title }
-        </h3>
+        </span>
         <ul className="filter__list">
           { this.renderFields() }
         </ul>

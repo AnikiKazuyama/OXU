@@ -74,9 +74,6 @@ class Accordion extends PureComponent {
 
   render() {
     const { title } = this.props;
-    const { expanded } = this.state;
-
-    const buttonText = expanded ? '-' : '+';
 
     return (
       <div className={this.getClassName('accordion')}>
@@ -84,9 +81,7 @@ class Accordion extends PureComponent {
           <div className={this.getClassName('title')}>
             { title }
           </div>
-          <div className={this.getClassName('button')}>
-            { buttonText }
-          </div>
+          <div className={`${this.getClassName('button')}`} />
         </div>
         <div
           className={this.getClassName('body')}

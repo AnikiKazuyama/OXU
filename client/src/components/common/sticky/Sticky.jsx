@@ -34,7 +34,7 @@ class Sticky extends Component {
     if (window.innerHeight > container.firstElementChild.clientHeight) {
       if (window.pageYOffset > container.clientTop) {
         container.classList.add('sticky');
-        container.style.top = `${this.props.offsetBottom}px`;
+        container.style.top = `${this.props.offsetTop}px`;
       } else {
         container.classList.remove('sticky');
         container.style.top = '';

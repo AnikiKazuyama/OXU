@@ -29,7 +29,7 @@ class CatalogItem extends Component {
 
     return social.map((item, index) => {
       const key = index;
-      return <Counter icon={this.getIcon(item.icon)} count={item.count} key={key} />;
+      return <Counter className="catalog-item__social" icon={this.getIcon(item.icon)} count={item.count} key={key} />;
     });
   }
 

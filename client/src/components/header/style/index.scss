@@ -9,7 +9,7 @@ $headerHeight: 55px;
   position: fixed;
   height: $headerHeight;
   width: 100%;
-  border-bottom: 1px solid $borderColor;
+  box-shadow: 0 0 1px #b1b1b1;
   background-color: #ffffff;
   &__logo {
     width: 220px;
