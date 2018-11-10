@@ -32,6 +32,7 @@
   user-select: none;
   &__toggle {
     height: 100%;
+    outline: none;
   }
   &__menu {
     z-index: 10;

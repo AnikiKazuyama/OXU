@@ -5,11 +5,13 @@ import './style/index.scss';
 
 class Card extends Component {
   static defaultProps = {
+    className: '',
     title: '',
     children: null
   }
 
   static propTypes = {
+    className: PropTypes.string,
     title: PropTypes.string,
     children: PropTypes.node
   }
@@ -31,8 +33,9 @@ class Card extends Component {
   }
 
   render() {
+    const { className } = this.props;
     return (
-      <div className="card">
+      <div className={`card ${className}`}>
         { this.renderTitle() }
         { this.props.children }
       </div>

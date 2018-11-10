@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import CatalogItem from './catalogItem';
 import { Filter, FilterItem } from '../common/filter';
 import Sticky from '../common/sticky';
 
@@ -8,7 +9,8 @@ import './style/index.scss';
 
 class Catalog extends PureComponent {
   static defaultProps = {
-    filterItems: []
+    filterItems: [],
+    items: []
   }
 
   static propTypes = {
@@ -26,12 +28,17 @@ class Catalog extends PureComponent {
           })
         )
       })
-    )
-  }
-
-  constructor() {
-    super();
-    this.filtercount = 40;
+    ),
+    items: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      content: PropTypes.string,
+      genres: PropTypes.arrayOf(PropTypes.string),
+      source: PropTypes.string,
+      social: PropTypes.arrayOf(PropTypes.shape({
+        icon: PropTypes.string,
+        count: PropTypes.number
+      }))
+    }))
   }
 
   renderFilterItems() {
@@ -46,21 +53,22 @@ class Catalog extends PureComponent {
   }
 
   renderCatalogList() {
-    const elems = [];
+    const { items } = this.props;
 
-    for (let i = 0; i < this.filtercount; i++) {
-      const key = i;
+    return items.map((item, index) => {
+      const key = index;
 
-      elems.push(
-        <div key={key}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente pariatur
-          sunt quam distinctio expedita nulla, itaque, minima dolores aliquid ipsa
-          harum nemo magni animi quod dolore sint porro ea labore?
-        </div>
+      return (
+        <CatalogItem
+          title={item.title}
+          content={item.content}
+          genres={item.genres}
+          source={item.source}
+          social={item.social}
+          key={key}
+        />
       );
-    }
-
-    return elems;
+    });
   }
 
   render() {

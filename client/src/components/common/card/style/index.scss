@@ -1,7 +1,7 @@
 @import '../../../../assets/style/colors';
 
 .card {
-    border: 1px solid $borderColor;
+    box-shadow: 0 1px 2px $shadowColor;
     background-color: #ffffff;
     border-radius: 2px;
     &__title {

@@ -13,7 +13,7 @@
     &__header {
         padding: 25px 0;
         background-color: #ffffff;
-        border-bottom: 1px solid $borderColor;
+        box-shadow: 0 1px 1px $shadowColorLight;
         box-sizing: border-box;
         width: 100%;
     }

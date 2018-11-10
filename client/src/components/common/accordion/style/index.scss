@@ -10,12 +10,12 @@ $buttonSize: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 8px;
-    padding-left: 5px;
+    padding: 0 0 8px 5px;
     border-bottom: 1px solid black;
     cursor: pointer;
     user-select: none;
     transition: border-color 0.2s ease-out;
+    outline: none
   }
   &__button {
     position: relative;
