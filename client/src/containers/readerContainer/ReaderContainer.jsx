@@ -6,8 +6,6 @@ import Reader from '../../components/reader';
 
 import RestService from '../../utils/restServive';
 
-import './style/index.scss';
-
 class ReaderContainer extends Component {
   static defaultProps = {
     history: {
