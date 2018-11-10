@@ -1,0 +1,35 @@
+@import '../../../../../assets/style/colors';
+
+.chapters { 
+  &__accordion {
+    color: $textColor;
+  }
+
+  &__accordion-header {
+    border-bottom-color: $borderColor;
+  }
+
+  &__accordion-body-inner {
+    padding-left: 15px; 
+    border-left: 4px solid $textColor;
+  }
+
+  &__accordion:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px dotted $borderColor;
+  }
+
+  &__date {
+    font-size: 11px;
+    opacity: 0.7;
+  }
+
+}

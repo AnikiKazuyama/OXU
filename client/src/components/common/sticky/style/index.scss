@@ -1,0 +1,6 @@
+.sticky {
+    position: fixed !important;
+    &-content {
+        position: absolute;
+    }
+}
