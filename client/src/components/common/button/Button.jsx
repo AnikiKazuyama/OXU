@@ -7,21 +7,23 @@ class Button extends PureComponent {
   static defaultProps = {
     as: 'button',
     className: '',
+    title: '',
     children: null
   }
 
   static propTypes = {
     as: PropTypes.string,
     className: PropTypes.string,
+    title: PropTypes.string,
     children: PropTypes.node
   }
 
   render() {
-    const { as, className = '', children } = this.props;
+    const { as, className, children, title } = this.props;
     const Component = as;
 
     return (
-      <Component tabIndex="0" className={`button ${className}`}>
+      <Component tabIndex="0" className={`button ${className}`} title={title}>
         { children }
       </Component>
     );

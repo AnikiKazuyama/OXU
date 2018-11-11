@@ -1,28 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Chapters from './chapters';
 import Reviews from './reviews';
+import Comments from '../../../containers/commentsContainer';
 
 import Types from '../../../constants/manga/mangaContentCenter';
-
-const MangaComments = props => (
-  <div className={props.className}>Comments</div>
-);
-
-MangaComments.propTypes = {
-  className: PropTypes.string
-};
-
-MangaComments.defaultProps = {
-  className: ''
-};
 
 class MangaContentFactory {
   static get(type) {
     if (Object.prototype.hasOwnProperty.call(Types, type)) {
       if (type === Types.comments) {
-        return MangaComments;
+        return props => <Comments {...props} />;
       }
 
       if (type === Types.chapters) {

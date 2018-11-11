@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import Input from '../input';
+
 import './style/index.scss';
 
 class InputSearch extends PureComponent {
@@ -15,7 +17,7 @@ class InputSearch extends PureComponent {
   render() {
     return (
       <div className={`input-search ${this.props.className}`}>
-        <input className="input-search__field" type="text" />
+        <Input className="input-search__field" />
       </div>
     );
   }
