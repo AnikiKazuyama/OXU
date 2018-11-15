@@ -29,7 +29,7 @@ class Comments extends Component {
     this.placeholder = 'Cast your spell...';
     this.state = {
       replyCommentId: -1
-    }
+    };
   }
 
   setReplyCommentId(id) {
