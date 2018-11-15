@@ -53,6 +53,7 @@ $minHeightPad: 30px;
         &__content {
             display: flex;
             flex-direction: column;
+            flex-grow: 1;
         }
         &__header, &__footer {
             flex-shrink: 0;
@@ -66,7 +67,6 @@ $minHeightPad: 30px;
             color: $textColor;
         }
         &__main {
-            display: flex;
             flex-shrink: 1;
             flex-grow: 1;
             padding: 10px 20px;

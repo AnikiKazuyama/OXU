@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Input from '../../input';
+import ContentEditable from '../../contentEditable';
 import Button from '../../button';
 
 class CommentsSender extends Component {
@@ -37,7 +37,7 @@ class CommentsSender extends Component {
 
     return (
       <div className="comments__sender">
-        <Input
+        <ContentEditable
           className="comments__input"
           placeholder={placeholder}
           onChange={this.handleChange}

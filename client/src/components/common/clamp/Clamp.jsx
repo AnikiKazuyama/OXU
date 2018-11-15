@@ -19,7 +19,7 @@ class Clamp extends Component {
     const computedStyle = getComputedStyle(this.content.current.parentElement);
     let height = this.content.current.parentElement.clientHeight;
     height -= parseFloat(computedStyle.paddingTop) + parseFloat(computedStyle.paddingBottom);
-    ClampJs(this.content.current, { clamp: `${height}px` });
+    ClampJs(this.content.current, { clamp: `${height}px`, useNativeClamp: false });
   }
 
   render() {

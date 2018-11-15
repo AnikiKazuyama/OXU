@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 
 import CommentsItem from './commentsItem';
@@ -25,15 +25,46 @@ class Comments extends Component {
   constructor(props) {
     super(props);
 
+    this.commentRefs = { };
     this.placeholder = 'Cast your spell...';
+    this.state = {
+      replyCommentId: -1
+    }
+  }
+
+  setReplyCommentId(id) {
+    this.setState({
+      replyCommentId: id
+    });
+  }
+
+  handleReplyClick = (id) => {
+    const element = this.commentRefs[id].current;
+    const bodyRect = document.body.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
+    const offset = rect.top - bodyRect.top;
+    window.scrollTo({
+      behavior: 'smooth',
+      top: offset - window.innerHeight / 2
+    });
+    this.setReplyCommentId(id);
   }
 
   renderComments() {
     const { comments } = this.props;
-
-    return comments.map(comment => (
-      <CommentsItem {...comment} />
-    ));
+    return comments.map((comment) => {
+      const { replyCommentId } = this.state;
+      this.commentRefs[comment.id] = createRef();
+      const className = replyCommentId === comment.id ? 'comments__item--replied' : '';
+      return (
+        <CommentsItem
+          className={className}
+          onReplyClick={this.handleReplyClick}
+          refItem={this.commentRefs[comment.id]}
+          {...comment}
+        />
+      );
+    });
   }
 
   render() {
@@ -42,7 +73,7 @@ class Comments extends Component {
         <div className="comments__inner">
           { this.renderComments() }
         </div>
-        <CommentsSender />
+        <CommentsSender placeholder={this.placeholder} />
       </div>
     );
   }

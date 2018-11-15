@@ -1,0 +1,17 @@
+div.input {
+  outline: none;
+  word-break: break-all;
+  &:after {
+    content: attr(placeholder);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    pointer-events: none;
+    transition: opacity .2s;
+  }
+  &:focus, &--hidden {
+    &:after {
+      opacity: 0;
+    }
+  }
+}

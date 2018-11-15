@@ -30,7 +30,7 @@ class Input extends Component {
   handleChange = (event) => {
     const { target: { value } } = event;
     const { propValue, onChange } = this.props;
-    
+
     this.setState({
       text: propValue || value
     }, () => onChange(this.state.text));
