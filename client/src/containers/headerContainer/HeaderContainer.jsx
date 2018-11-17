@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../../components/header';
+import Header from '../../view/header';
 
 function HeaderContainer() {
   return <Header />;

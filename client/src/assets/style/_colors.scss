@@ -1,5 +1,8 @@
 $bg: #f6f7fa;
 $bgRead: #212121;
+$headerBg: #6646a2;
+$headerBgLight: lighten($headerBg, 1%);
+$lightColor: lighten($headerBg, 48%);
 $readArrow: darken($bgRead, 5%);
 $readPageColor: #d0d0d0;
 $searchFocus: darken($bg, 1%);
@@ -9,6 +12,6 @@ $borderColor: #d4d9e3;
 $shadowColor: #b1b1b1;
 $shadowColorLight: lighten($shadowColor, 15%);
 $borderColorLight: lighten($borderColor, 5%);
-$hoverColor: #f1f3f7;
+$hoverColor: $lightColor;
 $focusColor: #0078c1;
-$padColor: #f1f3f7;
+$padColor: $lightColor;

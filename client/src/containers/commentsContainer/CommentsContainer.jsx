@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Comments from '../../components/common/comments';
+import Comments from '../../view/common/comments';
 
 import testData from './testData';
 

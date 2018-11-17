@@ -1,0 +1,99 @@
+@import '../../../assets/style/colors';
+
+$arrowSize: 100px;
+$pagesSize: 40px;
+$containerPadding: 10px;
+$loaderSize: 100px;
+
+@keyframes loader {
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.reader {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-height: 100vh;
+    &__side {
+        flex-grow: 1;
+        &:hover .reader__arrow {
+            opacity: 0.5;
+        }
+    }
+    &__arrow {
+        position: fixed;
+        top: 50%;
+        height: $arrowSize;
+        width: $arrowSize;
+        background-color: $readArrow;
+        background-image: url('../../../assets/img/arrow.svg');
+        background-size: $arrowSize / 2.5;
+        background-position: center 55%;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 0.4s;
+        cursor: pointer;
+        &--left {
+            left: 0;
+            transform: translateY(-50%) rotate(90deg);
+        }
+        &--right {
+            right: 0;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+    }
+    &__container {
+        max-width: calc(100% - #{$arrowSize * 2});
+        padding-top: $containerPadding;
+        text-align: center;
+    }
+    &__image {
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        cursor: pointer;
+        &--error {
+            width: 50%;
+        }
+        &--web {
+            height: auto !important;
+        }
+        &--web.reader__image--vertical {
+            width: 130%;
+        }
+        &--vertical {
+            min-width: calc(100vw - #{$arrowSize * 2});
+            height: auto;
+            min-height: 100%;
+            max-width: none;
+        }
+        &-loader {
+            display: inline-block;
+            vertical-align: middle;
+            width: $loaderSize;
+            height: 100%;
+            background-image: url('../img/loading.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: loader;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+    }
+    &__pages {
+        height: $pagesSize;
+        line-height: $pagesSize;
+        color: $readPageColor;
+        font-weight: 100;
+    }
+}
+
+.scrollbar {
+    position: relative;
+    height: calc(100vh - #{$pagesSize + $containerPadding});
+}

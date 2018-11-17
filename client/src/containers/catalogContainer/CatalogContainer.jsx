@@ -1,7 +1,7 @@
 import React from 'react';
 
 import filterItems from '../../constants/catalogFilters';
-import { CatalogWithWrapper } from '../../components/catalog/Catalog';
+import { CatalogWithWrapper } from '../../view/catalog/Catalog';
 import testData from './testData';
 
 function CatalogContainer() {

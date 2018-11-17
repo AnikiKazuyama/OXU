@@ -45,4 +45,13 @@ input {
     }
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
 
+.sticky:before,
+.sticky:after {
+    content: '';
+    display: table;
+}
