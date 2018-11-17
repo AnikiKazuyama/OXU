@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer');
 
 const path = require('path');
 
@@ -38,7 +39,18 @@ module.exports = {
         use: [
           'style-loader', // creates style nodes from JS strings
           'css-loader', // translates CSS into CommonJS
-          'sass-loader' // compiles Sass to CSS, using Node Sass by default
+          'sass-loader', // compiles Sass to CSS, using Node Sass by default
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer({
+                  browsers: ['last 1 version', 'not dead', '> 0.2%']
+                })
+              ],
+              sourceMap: true
+            }
+          }
         ]
       },
 

@@ -59,6 +59,7 @@
         flex-direction: column;
         justify-content: center;
         &-description {
+            display: block;
             margin-top: 5px;
             font-size: 12px;
             opacity: 0.5;

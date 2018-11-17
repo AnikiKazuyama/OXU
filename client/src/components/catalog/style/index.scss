@@ -11,6 +11,7 @@ $minHeightPad: 30px;
         display: flex;
         flex-wrap: wrap;
         flex-grow: 1;
+        flex-basis: 0;
         margin-top: -$cardMargin;
         margin-left: $filterWidth;
         padding: 0 calc(30px - #{$cardMargin});
@@ -54,6 +55,7 @@ $minHeightPad: 30px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            flex-basis: 0;
         }
         &__header, &__footer {
             flex-shrink: 0;

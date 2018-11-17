@@ -1,11 +1,14 @@
 @import '../../../assets/style/constants.scss';
 @import '../../../assets/style/colors';
 
+$contentLeftWidth: 210px;
+
 .manga {
     display: flex; 
     flex-direction: column;
     padding-bottom: 30px;
     &__hero {
+        flex-shrink: 0;
         height: 300px;
         background-size: cover;
         background-position: center;
@@ -21,6 +24,8 @@
         display: flex;
     }
     &__header-content {
+        flex-basis: 0;
+        flex-grow: 1;
         position: relative;
     }
     &__header-image {
@@ -78,9 +83,9 @@
         width: 100%;
         padding-top: 25px;
         &-center {
+            flex-basis: 0;
             flex-grow: 1;
             margin: 0 20px;
-            // padding-left: 210px;
         }
         &-left > .card:not(:last-child), 
         &-right > .card:not(:last-child), 
@@ -88,8 +93,8 @@
             margin-bottom: 20px;
         }
         &-left, &-right {
-            width: 210px;
-            min-width: 210px;
+            width: $contentLeftWidth;
+            min-width: $contentLeftWidth;
         }
     }
     &__ch-vol {

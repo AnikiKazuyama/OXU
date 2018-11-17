@@ -11,7 +11,7 @@ function Manga(props) {
     <div className="manga">
       <div
         className="manga__hero"
-        style={{ backgroundImage: `url(${props.heroUrl}` }}
+        style={{ backgroundImage: `url(${props.heroUrl})` }}
       />
       <MangaHeader />
       <MangaContentWithWrapper />
