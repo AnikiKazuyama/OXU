@@ -42,11 +42,14 @@ $headerHeight: 55px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
+    pointer-events: none;
   }
   &__title-container {
     flex-shrink: 0;
     margin-left: 90px;
     margin-right: 20px;
+    cursor: pointer;
   }
   &__container {
     display: flex;

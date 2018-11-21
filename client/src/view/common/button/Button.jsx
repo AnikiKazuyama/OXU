@@ -8,22 +8,25 @@ class Button extends PureComponent {
     as: 'button',
     className: '',
     title: '',
-    children: null
+    children: null, 
+    onClick: () => null
   }
 
   static propTypes = {
     as: PropTypes.string,
     className: PropTypes.string,
     title: PropTypes.string,
-    children: PropTypes.node
+    children: PropTypes.node, 
+    onClick: PropTypes.func
   }
 
   render() {
-    const { as, className, children, title } = this.props;
+    console.log('button')
+    const { as, className, children, title, onClick } = this.props;
     const Component = as;
 
     return (
-      <Component tabIndex="0" className={`button ${className}`} title={title}>
+      <Component tabIndex="0" className={`button ${className}`} title={title} onClick={onClick}>
         { children }
       </Component>
     );
