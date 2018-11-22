@@ -6,7 +6,8 @@ class Input extends Component {
     className: '',
     placeholder: '',
     propValue: '',
-    onChange: () => {}
+    onChange: () => {},
+    spellCheck: false
   }
 
   static propTypes = {
@@ -16,7 +17,8 @@ class Input extends Component {
       PropTypes.string,
       PropTypes.number
     ]),
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    spellCheck: PropTypes.bool
   }
 
   constructor(props) {
@@ -39,7 +41,8 @@ class Input extends Component {
   render() {
     const {
       className,
-      placeholder
+      placeholder,
+      spellCheck
     } = this.props;
     const { text } = this.state;
 
@@ -50,6 +53,7 @@ class Input extends Component {
         placeholder={placeholder}
         onChange={this.handleChange}
         value={text}
+        spellCheck={spellCheck}
       />
     );
   }

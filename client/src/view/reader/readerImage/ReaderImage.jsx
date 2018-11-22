@@ -16,7 +16,11 @@ class ReaderImage extends Component {
     this.initImage(this.props.src);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillUnmount() {
+    this.removeEvents();
+  }
+
+  getDerivedStateFromProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
       this.setState({
         isWeb: false,
@@ -25,10 +29,6 @@ class ReaderImage extends Component {
       });
       this.initImage(nextProps.src);
     }
-  }
-
-  componentWillUnmount() {
-    this.removeEvents();
   }
 
   handleImageLoad = (event) => {
