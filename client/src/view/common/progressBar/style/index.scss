@@ -1,0 +1,31 @@
+.progress-bar {
+  position: relative;
+  display: inline-block;
+  width: 700px;
+  height: 300px;
+  background-color: red;
+  user-select: none;
+  &__line {
+    fill: #1AB032;
+  }
+  &__rect {
+    transition: width 0.2s;
+  }
+  &__exp-text {
+    text-align: center;
+  }
+  &__lvl-text {
+    text-align: end;
+  }
+  &__button {
+    fill: #ffffff;
+    cursor: pointer;
+    transition: fill .2s;
+    &:hover {
+      fill: #ece8f5;
+    }
+  }
+  &__plus {
+    pointer-events: none;
+  }
+}
