@@ -63,7 +63,7 @@ $headerHeight: 55px;
         padding: 0 20px;
         font-size: 14px;
         color: $headerBg;
-        &:hover {
+        &:hover, &--active {
           background-color: $headerBg;
           color: #ffffff;
         }

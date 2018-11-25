@@ -79,13 +79,8 @@ $contentLeftWidth: 210px;
         min-height: 100px;
     }
     &__content {
-        display: flex;
-        width: 100%;
-        padding-top: 25px;
+        padding-top: $ContentPaddingTop;
         &-center {
-            flex-basis: 0;
-            flex-grow: 1;
-            margin: 0 20px;
             & .navigation {
                 &__item {
                   display: inline-block;
@@ -102,6 +97,9 @@ $contentLeftWidth: 210px;
                   }
                 }
               }
+        }
+        & > .panel__center {
+            margin: 0 20px;
         }
         &-left > .card:not(:last-child), 
         &-right > .card:not(:last-child), 

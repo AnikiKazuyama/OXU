@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import Chapters from './chapters';
+import Reviews from './reviews';
+import Comments from '../../../containers/commentsContainer';
 
 import Card from '../../common/card';
+import Navigation from '../../common/navigation';
 
 import navItems from '../../../constants/mangaPageNavigation';
 import ContentStrategy from './Strategy';
-import Navigation from '../../common/navigation';
 
 class MangaContentCenter extends Component {
   constructor(props) {
@@ -27,8 +32,6 @@ class MangaContentCenter extends Component {
   }
 
   render() {
-    const SubComponent = this.renderSubComponent();
-
     return (
       <div className="manga__content-center">
         <Card>
@@ -39,7 +42,12 @@ class MangaContentCenter extends Component {
         </Card>
         <Card>
           <div className="manga__main">
-            <SubComponent />
+            <Switch>
+              <Route exact path="/manga" component={Chapters} />
+              <Route path="/manga/comments" component={Comments} />
+              <Route path="/manga/reviews" component={Reviews} />
+              <Route component={Chapters} />
+            </Switch>
           </div>
         </Card>
       </div>

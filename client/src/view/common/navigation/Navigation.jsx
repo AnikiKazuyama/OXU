@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import './style/index.scss';
 
 class Navigation extends Component {
   static defaultProps = {
     items: [],
-    onNavigation: () => {}
+    onNavigation: () => {},
+    isHorizontal: false
   }
 
   static propTypes = {
@@ -13,7 +17,8 @@ class Navigation extends Component {
       text: PropTypes.string,
       href: PropTypes.string
     })),
-    onNavigation: PropTypes.func
+    onNavigation: PropTypes.func,
+    isHorizontal: PropTypes.bool
   }
 
   constructor(props) {
@@ -34,25 +39,28 @@ class Navigation extends Component {
 
   renderNavItems() {
     return this.props.items.map((item) => {
-      const className = `navigation__item ${item.id === this.state.activeId ? 'navigation__item--active' : ''}`;
       return (
-        <a
-          href={item.href}
+        <NavLink
+          exact
+          to={item.href}
           tabIndex="0"
-          className={className}
+          activeClassName="navigation__item--active"
+          className="navigation__item"
           key={item.id}
           onClick={() => this.handleClick(item.id)}
           role="button"
         >
           { item.text }
-        </a>
+        </NavLink>
       );
     });
   }
 
   render() {
+    const {isHorizontal} = this.props;
+
     return (
-      <nav className="navigation">
+      <nav className={`navigation ${isHorizontal ? 'navigation--horizontal' : ''}`}>
         { this.renderNavItems() }
       </nav>
     );

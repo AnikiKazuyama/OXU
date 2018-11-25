@@ -2,19 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import MangaHeader from './mangaHeader';
-import { MangaContentWithWrapper } from './mangaContent';
+import MangaContentLeft from './mangaContentLeft';
+import MangaContentCenter from './mangaContentCenter';
+
+import withWrapper from '../../HOC/withWrapper';
+
+import Hero from '../common/hero';
+import MangaContent from '../common/panel';
 
 import './style/index.scss';
 
+const MangaContentWithWrapper = withWrapper(MangaContent);
+
 function Manga(props) {
+  const { heroUrl } = props;
+
   return (
     <div className="manga">
-      <div
-        className="manga__hero"
-        style={{ backgroundImage: `url(${props.heroUrl})` }}
-      />
+      <Hero url={heroUrl} />
       <MangaHeader />
-      <MangaContentWithWrapper />
+      <MangaContentWithWrapper
+        containerClassName="manga__content"
+        left={<MangaContentLeft />}
+        center={<MangaContentCenter />}
+      />
     </div>
   );
 }

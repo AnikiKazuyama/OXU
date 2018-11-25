@@ -5,7 +5,7 @@ import MangaContainer from '../../../containers/mangaContainer';
 
 function MangaRoute() {
   return (
-    <Route exact path="/:id" component={MangaContainer} />
+    <Route path="/manga" component={MangaContainer} />
   );
 }
 

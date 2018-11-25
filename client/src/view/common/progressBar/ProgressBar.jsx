@@ -7,13 +7,15 @@ class ProgressBar extends Component {
   static defaultProps = {
     max: 100,
     current: 0,
-    lvl: 1
+    lvl: 1,
+    className: ''
   }
 
   static propTypes = {
     max: PropTypes.number,
     current: PropTypes.number,
-    lvl: PropTypes.string
+    lvl: PropTypes.number,
+    className: PropTypes.string
   }
 
   constructor() {
@@ -31,10 +33,6 @@ class ProgressBar extends Component {
     setTimeout(() => {
       this.calcWidht();
     }, 1000);
-  }
-
-  componentWillUnmount() {
-    this.removeEvents();
   }
 
   getTextExperience() {
@@ -64,7 +62,7 @@ class ProgressBar extends Component {
 
     const value = widthTransform < heightTransform ? widthTransform : heightTransform;
     textNode.setAttribute('font-size', `${0.9 * value - 0.08}em`);
-    textNode.setAttribute('dy', `${(1 * value) / 2 - 0.08}em`);
+    textNode.setAttribute('dy', `${(1 * value) / 2}px`);
   }
 
   initEvents() {
@@ -86,15 +84,17 @@ class ProgressBar extends Component {
   }
 
   render() {
+    const { className } = this.props;
+
     return (
-      <div className="progress-bar">
+      <div className={`${className} progress-bar`}>
         <svg width="100%" height="100%" viewBox="0 0 602 51" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <mask id="progress-bar__mask" x="0" y="0" width="5" height="26">
               <rect ref={this.maskRef} className="progress-bar__rect" x="48" y="7" fill="#fff" width="0" height="26" />
             </mask>
             <mask id="gradient-mask">
-              <rect x="0" y="0" width="602" height="602" fill="url(#grad2)"/>
+              <rect x="0" y="0" width="602" height="602" fill="url(#grad2)" />
             </mask>
             <linearGradient gradientUnits="objectBoundingBox" id="grad1" x1="0%" y1="100%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="rgb(254,241,2)" stopOpacity="1" />
