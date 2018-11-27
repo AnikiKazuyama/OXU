@@ -1,10 +1,19 @@
+@import '../../../../assets/style/colors';
+
 .navigation {
+  display: flex;
   overflow: hidden;
   &--horizontal {
-    display: flex;
     flex-direction: column;
+    .navigation__item {
+      display: block;
+    }
   };
   &__item {
+    outline: none;
+  }
+  &__item--active {
+    background-color: $hoverColor;
     outline: none;
   }
 }

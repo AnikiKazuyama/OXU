@@ -1,20 +1,24 @@
+import React from 'react';
+import Button from '../../view/common/button';
+
 import types from '../manga/mangaContentCenter';
 
 const items = [
   {
     id: types.chapters,
+    exact: true,
     href: '/manga',
-    text: 'Chapters'
+    text: <Button>Chapters</Button>
   },
   {
     id: types.comments,
     href: '/manga/comments',
-    text: 'Comments'
+    text: <Button>Comments</Button>
   },
   {
     id: types.reviews,
     href: '/manga/reviews',
-    text: 'Reviews'
+    text: <Button>Reviews</Button>
   }
 ];
 

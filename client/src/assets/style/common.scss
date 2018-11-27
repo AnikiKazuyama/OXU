@@ -56,3 +56,9 @@ input {
     content: '';
     display: table;
 }
+
+.hide-text {
+  line-height: 0; 
+  font-size: 0;
+  color: transparent; 
+}

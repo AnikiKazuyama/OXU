@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import './style/index.scss';
 
 class Dropdown extends Component {
@@ -94,9 +96,13 @@ class Dropdown extends Component {
 
     return items.map(item => (
       <Fragment key={item.name}>
-        <a className="dropdown__item" href={item.link}>
+        <Link 
+          className="dropdown__item"
+          to={item.link}
+          onClick={this.toggleMenu}
+        >
           { item.name }
-        </a>
+        </Link>
         { this.renderSeparator(item.isSeparate) }
       </Fragment>
     ));

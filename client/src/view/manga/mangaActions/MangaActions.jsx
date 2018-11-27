@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { ButtonMangaAction as Button } from '../../common/button';
+import Button from '../../common/button';
 
 class MangaActions extends Component {
   // handleClick(id) {
@@ -21,7 +21,7 @@ class MangaActions extends Component {
   renderItems() {
     return this.props.items.map(item => (
       <Button
-        as="a"
+        fullWidth
         onClick={() => this.handleClick(item.id)}
         key={item.id}
       >

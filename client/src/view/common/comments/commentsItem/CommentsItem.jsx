@@ -74,7 +74,7 @@ class CommentsItem extends Component {
             </div>
             <div className="comments__common">
               { this.renderReply() }
-              <Button className="comments__report" title="Report comment" />
+              <button className="comments__report" title="Report comment" />
             </div>
           </div>
           <div className="comments__content-main">
@@ -82,7 +82,7 @@ class CommentsItem extends Component {
           </div>
           <div className="comments__content-footer">
             <div className="comments__date">{ date }</div>
-            <Button className="comments__response">Response</Button>
+            <button className="comments__response">Response</button>
           </div>
         </div>
       </div>

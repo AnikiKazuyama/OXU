@@ -8,7 +8,9 @@ class Navigation extends Component {
   static defaultProps = {
     items: [],
     onNavigation: () => {},
-    isHorizontal: false
+    isHorizontal: false,
+    className: '',
+    itemClassName: ''
   }
 
   static propTypes = {
@@ -18,7 +20,9 @@ class Navigation extends Component {
       href: PropTypes.string
     })),
     onNavigation: PropTypes.func,
-    isHorizontal: PropTypes.bool
+    isHorizontal: PropTypes.bool,
+    className: PropTypes.string,
+    itemClassName: PropTypes.string
   }
 
   constructor(props) {
@@ -38,31 +42,35 @@ class Navigation extends Component {
   }
 
   renderNavItems() {
+    const { itemClassName } = this.props;
+
     return this.props.items.map((item) => {
       return (
-        <NavLink
-          exact
-          to={item.href}
-          tabIndex="0"
-          activeClassName="navigation__item--active"
-          className="navigation__item"
-          key={item.id}
-          onClick={() => this.handleClick(item.id)}
-          role="button"
-        >
-          { item.text }
-        </NavLink>
+        <li>
+          <NavLink
+            exact={item.exact}
+            to={item.href}
+            tabIndex="0"
+            activeClassName="navigation__item--active"
+            className={`${itemClassName} navigation__item`}
+            key={item.id}
+            onClick={() => this.handleClick(item.id)}
+            role="button"
+          >
+            { item.text }
+          </NavLink>
+        </li>
       );
     });
   }
 
   render() {
-    const {isHorizontal} = this.props;
+    const { isHorizontal, className } = this.props;
 
     return (
-      <nav className={`navigation ${isHorizontal ? 'navigation--horizontal' : ''}`}>
+      <ul className={`navigation ${isHorizontal ? 'navigation--horizontal' : ''} ${className}`}>
         { this.renderNavItems() }
-      </nav>
+      </ul>
     );
   }
 }

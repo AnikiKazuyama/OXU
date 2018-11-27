@@ -12,8 +12,8 @@ function MainRoute() {
   return (
     <Switch>
       <Route exact path="/catalog" component={CatalogContainer} />
-      <Route exact path="/im" component={ProfileContainer} />
       <Route exact path="/read" component={ReaderRoute} />
+      <Route path="/im" component={ProfileContainer} />
       <Route path="/manga" component={MangaRoute} />
       <Route component={notFound} />
     </Switch>

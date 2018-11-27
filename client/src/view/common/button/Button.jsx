@@ -8,7 +8,8 @@ class Button extends PureComponent {
     as: 'button',
     className: '',
     title: '',
-    children: null, 
+    fullWidth: false,
+    children: null,
     onClick: () => null
   }
 
@@ -16,17 +17,31 @@ class Button extends PureComponent {
     as: PropTypes.string,
     className: PropTypes.string,
     title: PropTypes.string,
+    fullWidth: PropTypes.bool,
     children: PropTypes.node, 
     onClick: PropTypes.func
   }
 
   render() {
-    console.log('button')
-    const { as, className, children, title, onClick } = this.props;
+    const {
+      as,
+      className,
+      children,
+      title,
+      fullWidth,
+      onClick
+    } = this.props;
+
     const Component = as;
+    const fullWidthClassName = fullWidth ? 'button--full-width' : '';
 
     return (
-      <Component tabIndex="0" className={`button ${className}`} title={title} onClick={onClick}>
+      <Component
+        tabIndex="0"
+        className={`button ${fullWidthClassName} ${className}`}
+        title={title}
+        onClick={onClick}
+      >
         { children }
       </Component>
     );

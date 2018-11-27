@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../button';
 import Input from '../input';
 
 import './style/index.scss';
@@ -18,7 +17,7 @@ class InputSearch extends PureComponent {
   render() {
     return (
       <div className={`input-search ${this.props.className}`}>
-        <Button as="a" className="input-search__random" />
+        <a className="input-search__random hide-text">search random</a>
         <Input className="input-search__field" placeholder="Search..." />
       </div>
     );

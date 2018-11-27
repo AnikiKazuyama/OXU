@@ -5,10 +5,13 @@ import Dropdown from '../common/dropdown';
 import InputSearch from '../common/InputSearch';
 import HeaderProfile from './headerProfile';
 
+import withNav from '../../HOC/withNav';
 import navigationItems from '../../constants/headerNavigation';
 import './style/index.scss';
 
 import profileItems from '../../constants/profilePopupMenu';
+
+const NavigationWithNav = withNav(Navigation);
 
 function Header() {
   return (
@@ -27,7 +30,11 @@ function Header() {
       <div className="wrapper">
         <div className="site-header__container">
           <div className="site-header__maskot" />
-          <Navigation items={navigationItems} />
+          <NavigationWithNav
+            navClassName="site-header__nav"
+            itemClassName="site-header__nav-item"
+            items={navigationItems}
+          />
           <Dropdown items={profileItems.items}>
             <HeaderProfile />
           </Dropdown>

@@ -9,28 +9,8 @@ import Card from '../../common/card';
 import Navigation from '../../common/navigation';
 
 import navItems from '../../../constants/mangaPageNavigation';
-import ContentStrategy from './Strategy';
 
 class MangaContentCenter extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeContent: navItems[0].id
-    };
-  }
-
-  handleClick = (id) => {
-    this.setState({
-      activeContent: id
-    });
-  }
-
-  renderSubComponent = () => {
-    const { activeContent } = this.state;
-    return ContentStrategy.get(activeContent);
-  }
-
   render() {
     return (
       <div className="manga__content-center">

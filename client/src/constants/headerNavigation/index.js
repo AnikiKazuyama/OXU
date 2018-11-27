@@ -2,6 +2,7 @@ const items = [
   {
     id: 'home',
     text: 'Home',
+    exact: true,
     href: '/'
   },
   {

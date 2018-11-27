@@ -51,29 +51,29 @@ $headerHeight: 55px;
     margin-right: 20px;
     cursor: pointer;
   }
+  &__nav {
+    margin-right: auto;
+    &-item {
+      display: inline-block;
+      height: $headerHeight;
+      line-height: $headerHeight;
+      padding: 0 20px;
+      font-size: 14px;
+      color: $headerBg;
+      &:hover, &.navigation__item--active {
+        background-color: $headerBg;
+        color: #ffffff;
+      }
+      &:focus {
+        outline: none;
+        background-color: $headerBg;
+        color: #ffffff;
+      }
+    }
+  }
   &__container {
     display: flex;
     height: $headerHeight;
-    & .navigation {
-      margin-right: auto;
-      &__item {
-        display: inline-block;
-        height: $headerHeight;
-        line-height: $headerHeight;
-        padding: 0 20px;
-        font-size: 14px;
-        color: $headerBg;
-        &:hover, &--active {
-          background-color: $headerBg;
-          color: #ffffff;
-        }
-        &:focus {
-          outline: none;
-          background-color: $headerBg;
-          color: #ffffff;
-        }
-      }
-    }
   }
   &__input {
     width: 400px;
