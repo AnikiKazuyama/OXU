@@ -1,29 +1,29 @@
 const items = [
   {
     id: 'home',
-    text: 'Home',
+    content: 'Home',
     exact: true,
-    href: '/'
+    href: '/',
   },
   {
     id: 'catalog',
-    text: 'Catalog',
+    content: 'Catalog',
     href: '/catalog'
   },
   {
     id: 'news',
-    text: 'News',
+    content: 'News',
     href: '/news'
   },
   {
     id: 'calendar',
-    text: 'Calendar',
+    content: 'Calendar',
     href: '/calendar'
   },
   {
     id: 'support',
-    text: 'Support',
-    href: '/manga'
+    content: 'Support',
+    href: '/manga',
   }
 ];
 

@@ -8,17 +8,17 @@ const items = [
     id: types.chapters,
     exact: true,
     href: '/manga',
-    text: <Button>Chapters</Button>
+    content: <Button>Chapters</Button>
   },
   {
     id: types.comments,
     href: '/manga/comments',
-    text: <Button>Comments</Button>
+    content: <Button>Comments</Button>
   },
   {
     id: types.reviews,
     href: '/manga/reviews',
-    text: <Button>Reviews</Button>
+    content: <Button>Reviews</Button>
   }
 ];
 

@@ -14,7 +14,6 @@ $buttonSize: 21px;
     align-items: center;
     justify-content: space-between;
     padding: 0 0 8px 5px;
-    font-size: 14px;
     border-bottom: 1px solid black;
     cursor: pointer;
     user-select: none;
@@ -30,8 +29,6 @@ $buttonSize: 21px;
     background-size: 9px;
     background-position: 6px;
     background-repeat: no-repeat;
-    color: white;
-    font-weight: 100;
     text-align: center;
     line-height: $buttonSize;
     opacity: 0.4;
@@ -46,10 +43,18 @@ $buttonSize: 21px;
     transition: height 0.25s ease-in;
   }
   &__body-inner {
+    display: flex;
+    flex-direction: column;
     margin-top: 15px;
   }
-  &__title {
-    font-weight: 100;
-    font-size: 16px;
+}
+
+.accordion.accordion--simple {
+  .accordion__button {
+    display: none;
+  }
+  .accordion__header {
+    padding: 0;
+    border: none;
   }
 }

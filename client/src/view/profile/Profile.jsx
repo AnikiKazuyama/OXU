@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import ProfileHeader from './ProfileHeader';
 import ProfileContentLeft from './ProfileContentLeft';
-// import ProfileContentCenter from './ProfileContentRight';
+import ProfileContentCenter from './ProfileContentCenter';
 
 import ProfileContent from '../common/panel';
 import Hero from '../common/hero';
@@ -34,7 +34,7 @@ class Profile extends Component {
         <ProfileContentWithWrapper
           containerClassName="profile-page__content"
           left={<ProfileContentLeft />}
-          // center={<ProfileContentCenter />}
+          center={<ProfileContentCenter />}
         />
       </div>
     );

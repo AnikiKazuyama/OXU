@@ -1,0 +1,30 @@
+.achivments {
+  padding: 20px;
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -15px;
+  }
+  &__item {
+    display: flex;
+    margin-top: 15px;
+    width: calc(50% - 20px);
+    min-width: 290px;
+    & > .achivment {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 916px) {
+  .achivments {
+      &__inner {
+          flex-direction: column;
+      }
+      &__item {
+          width: 100%;
+      }
+  }
+}

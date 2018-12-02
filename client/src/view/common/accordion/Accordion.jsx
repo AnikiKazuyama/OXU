@@ -1,15 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './style/index.scss';
 
-class Accordion extends PureComponent {
+class Accordion extends Component {
   static defaultProps = {
     title: 'Title',
     expanded: false,
     className: '',
     bodyInnerClassName: '',
-    children: null
+    children: null, 
+    simple: false
   }
 
   static propTypes = {
@@ -17,7 +18,8 @@ class Accordion extends PureComponent {
     title: PropTypes.string,
     className: PropTypes.string,
     bodyInnerClassName: PropTypes.string,
-    children: PropTypes.node
+    children: PropTypes.node, 
+    simple: PropTypes.bool
   }
 
   constructor(props) {
@@ -73,10 +75,11 @@ class Accordion extends PureComponent {
   }
 
   render() {
-    const { title } = this.props;
-
+    const { title, simple } = this.props;
+    const simpleCalssName = simple ? 'accordion--simple' : '';
+    
     return (
-      <div className={this.getClassName('accordion')}>
+      <div className={`${this.getClassName('accordion')} ${simpleCalssName}`}>
         <div className={this.getClassName('header')} onClick={this.handleClick} role="button" tabIndex="0">
           <div className={this.getClassName('title')}>
             { title }

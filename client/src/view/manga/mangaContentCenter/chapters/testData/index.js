@@ -1,6 +1,6 @@
 const volumes = {
   90: {
-    number: 90,
+    number: 92,
     title: 'Sacred Mariejoa',
     chapters: {
       first: 908,
@@ -90,7 +90,7 @@ const volumes = {
   },
 
   87: {
-    number: 89,
+    number: 80,
     title: 'Bad End Musical',
     chapters: {
       first: 898,
@@ -120,7 +120,7 @@ const volumes = {
   },
 
   86: {
-    number: 90,
+    number: 91,
     title: 'Sacred Mariejoa',
     chapters: {
       first: 908,
@@ -150,7 +150,7 @@ const volumes = {
   },
 
   85: {
-    number: 89,
+    number: 81,
     title: 'Bad End Musical',
     chapters: {
       first: 898,

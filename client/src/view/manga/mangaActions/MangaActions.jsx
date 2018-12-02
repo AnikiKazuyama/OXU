@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import Button from '../../common/button';
 
 class MangaActions extends Component {
-  // handleClick(id) {
-  //   //TODO
-  // }
   static defaultProps = {
     items: []
   }
@@ -16,6 +13,10 @@ class MangaActions extends Component {
       id: PropTypes.string,
       text: PropTypes.string
     }))
+  }
+
+  handleClick(id) {
+    return(null);
   }
 
   renderItems() {

@@ -1,12 +1,11 @@
 import React from 'react';
 
-import Navigation from '../common/navigation';
+import Navigation, { NavItem } from '../common/navigation';
 import Dropdown from '../common/dropdown';
 import InputSearch from '../common/InputSearch';
 import HeaderProfile from './headerProfile';
 
 import withNav from '../../HOC/withNav';
-import navigationItems from '../../constants/headerNavigation';
 import './style/index.scss';
 
 import profileItems from '../../constants/profilePopupMenu';
@@ -30,11 +29,48 @@ function Header() {
       <div className="wrapper">
         <div className="site-header__container">
           <div className="site-header__maskot" />
-          <NavigationWithNav
-            navClassName="site-header__nav"
-            itemClassName="site-header__nav-item"
-            items={navigationItems}
-          />
+          <NavigationWithNav navClassName="site-header__nav">
+            <NavItem
+              exact
+              id="home"
+              href="/"
+              className="site-header__nav-item"
+            >
+              Home
+            </NavItem>
+
+            <NavItem
+              id="catalog"
+              href="/catalog"
+              className="site-header__nav-item"
+            >
+              Catalog
+            </NavItem>
+
+            <NavItem
+              id="news"
+              href="/news"
+              className="site-header__nav-item"
+            >
+              News
+            </NavItem>
+
+            <NavItem
+              id="calendar"
+              href="/calendar"
+              className="site-header__nav-item"
+            >
+              Calendar
+            </NavItem>
+
+            <NavItem
+              id="support"
+              href="/manga"
+              className="site-header__nav-item"
+            >
+              Support
+            </NavItem>
+          </NavigationWithNav>
           <Dropdown items={profileItems.items}>
             <HeaderProfile />
           </Dropdown>

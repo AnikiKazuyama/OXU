@@ -14,7 +14,7 @@ import './assets/style/reset.scss';
 class App extends Component {
   componentDidMount() {
     Polyfill.initAll();
-    WDYU(React);
+    // WDYU(React);
   }
 
   render() {
