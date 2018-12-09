@@ -5,41 +5,38 @@ import Chapters from './chapters';
 import Reviews from './reviews';
 import Comments from '../../../containers/commentsContainer';
 
-import Button from '../../common/button';
 import Card from '../../common/card';
 import Navigation, { NavItem } from '../../common/navigation';
-
-import navItems from '../../../constants/mangaPageNavigation';
 
 function MangaContentCenter() {
   return (
     <div className="manga__content-center">
-      <Card>
+      <Card shadow>
         <Navigation>
           <NavItem
             exact
             id="chapters"
             href="/manga"
           >
-            <Button>Chapters</Button>
+            Chapters
           </NavItem>
           <NavItem
             exact
             id="reviews"
             href="/manga/reviews"
           >
-            <Button>Reviews</Button>
+            Reviews
           </NavItem>
           <NavItem
             exact
             id="comments"
             href="/manga/comments"
           >
-            <Button>Comments</Button>
+            Comments
           </NavItem>
         </Navigation>
       </Card>
-      <Card>
+      <Card shadow>
         <div className="manga__main">
           <Switch>
             <Route exact path="/manga" component={Chapters} />
