@@ -1,0 +1,68 @@
+@import '../../../../../../assets/style/colors';
+@import '../../../../../../assets/style/constants.scss';
+
+.bookmark-table {
+  &:not(:last-child){
+    margin-bottom: $BookmarksMarginBottom;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 6px;
+    margin-left: 10px;
+  }
+  &__preview {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    text-align: end;
+
+    &-cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 !important;
+    }
+  }
+  &__button {
+    display: none;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    outline: none;
+    background-image: url('../../../../../../assets/img/more.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-color: #4b3279;
+    cursor: pointer;
+  }
+  &__title-col {
+    flex-grow: 2 !important;
+    text-align: start !important;
+    & > div {
+      text-align: start !important;
+    }
+  }
+}
+
+.rt-tr-group {
+  user-select: none;
+}
+
+.rt-tbody .rt-tr-group:hover {
+  background-color: $headerBg;
+  color: white;
+  cursor: default;
+}
+
+.rt-tr-group:hover .bookmark-table__preview {
+  display: none;
+  z-index: -1;
+}
+
+.rt-tr-group:hover .bookmark-table__button {
+  display: flex;
+}

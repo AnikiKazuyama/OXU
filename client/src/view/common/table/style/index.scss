@@ -1,0 +1,91 @@
+.ReactTable {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+
+  & .rt-table {
+    display: flex;
+    flex: auto 1;
+    flex-direction: column;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: auto;
+  }
+
+  & .rt-thead {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    user-select: none;
+  }
+
+  & .rt-th, 
+  & .rt-td {
+    padding: 14px 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  & .rt-th {
+    align-items: center;
+    font-weight: 800;
+    font-size: 16px;
+    outline: none;
+    & > div {
+      text-align: center;
+    }
+  }
+
+  & .rt-td {
+    align-self: center;
+    text-align: center;
+  }
+
+  & .rt-tr {
+    display: inline-flex;
+    flex: 1 0 auto;
+  }
+
+  & .rt-tbody {
+    display: flex;
+    flex: 99999 1 auto;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  & .rt-tr-group {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  & .-loading {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all .3s ease;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+
+    &-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.6);
+      transform: translateY(-52%);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+}
+
