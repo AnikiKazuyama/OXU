@@ -47,7 +47,7 @@ class CatalogItem extends Component {
     } = this.props;
 
     return (
-      <Card className="catalog-item">
+      <Card className="catalog-item" shadow>
         <div className="catalog-item__preview">
           <Image src={source} />
           <span className="catalog-item__title">{ title }</span>
