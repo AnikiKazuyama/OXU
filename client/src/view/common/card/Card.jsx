@@ -7,13 +7,15 @@ class Card extends Component {
   static defaultProps = {
     className: '',
     title: '',
-    children: null
+    children: null,
+    shadow: false
   }
 
   static propTypes = {
     className: PropTypes.string,
     title: PropTypes.string,
-    children: PropTypes.node
+    children: PropTypes.node,
+    shadow: PropTypes.bool
   }
 
   title() {
@@ -33,9 +35,11 @@ class Card extends Component {
   }
 
   render() {
-    const { className } = this.props;
+    const { className, shadow } = this.props;
+    const editedClassName = shadow ? `card--shadow ${className}` : `${className}`;
+
     return (
-      <div className={`card ${className}`}>
+      <div className={`card ${editedClassName}`}>
         { this.renderTitle() }
         { this.props.children }
       </div>
