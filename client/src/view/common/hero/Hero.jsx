@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import './style/index.scss';
 
 function Hero(props) {
-  const { className, url } = props;
+  const { className, url, children } = props;
 
   return (
     <div
       className={`${className} hero`}
       style={{ backgroundImage: `url(${url})` }}
-    />
+    >
+      { children }
+    </div>
   );
 }
 
