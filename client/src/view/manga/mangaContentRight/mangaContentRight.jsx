@@ -8,7 +8,7 @@ import { similarManga } from '../mangaContent/testData';
 function MangaContentRight() {
   return (
     <div className="manga__content-right">
-      <Card title="Similar">
+      <Card title="Similar" shadow>
         <SimilarMediaList items={similarManga} />
       </Card>
     </div>

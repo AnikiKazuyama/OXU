@@ -11,11 +11,11 @@ import { chaptersAndVolumes, mangaInfo } from '../mangaContent/testData';
 function MangaContentLeft() {
   return (
     <div className="manga__content-left">
-      <Card>
+      <Card shadow>
         <MangaActions items={items} />
       </Card>
 
-      <Card title="Ongoing">
+      <Card title="Ongoing" shadow>
         <MangaInfo items={mangaInfo} chAVol={chaptersAndVolumes} />
       </Card>
     </div>
