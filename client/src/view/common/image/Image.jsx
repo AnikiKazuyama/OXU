@@ -56,10 +56,12 @@ class Image extends Component {
     const {
       className,
       src,
-      alt
+      alt,
+      onClick
     } = this.props;
+
     return (
-      <span onClick={this.props.onClick} tabIndex="0" role="button">
+      <div className="cover" onClick={onClick} tabIndex="0" role="button">
         <img
           className={className}
           src={src}
@@ -68,10 +70,9 @@ class Image extends Component {
           onError={this.handleImageError}
           onLoad={this.handleImageLoad}
         />
-      </span>
+      </div>
     );
   }
 }
-
 
 export default Image;
