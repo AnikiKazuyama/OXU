@@ -9,12 +9,14 @@ class Navigation extends Component {
   static defaultProps = {
     horizontal: false,
     className: '',
-    children: null
+    children: null, 
+    center: false
   }
 
   static propTypes = {
     horizontal: PropTypes.bool,
     className: PropTypes.string,
+    center: PropTypes.bool,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.node])
   }
 
@@ -32,10 +34,17 @@ class Navigation extends Component {
   )
 
   render() {
-    const { horizontal, className, children } = this.props;
+    const {
+      horizontal,
+      className,
+      center,
+      children
+    } = this.props;
+
+    const centerClassName = center ? 'navigation--center' : '';
 
     return (
-      <ul className={`navigation ${horizontal ? 'navigation--horizontal' : ''} ${className}`}>
+      <ul className={`navigation ${horizontal ? 'navigation--horizontal' : ''} ${className} ${centerClassName}`}>
         { children }
       </ul>
     );

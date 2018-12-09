@@ -3,17 +3,24 @@
 .navigation {
   display: flex;
   overflow: hidden;
+  &--center {
+    justify-content: center;
+  }
   &--horizontal {
     flex-direction: column;
     .navigation__item {
       display: block;
     }
-  };
+  }
   &__item {
+    padding: 10px 35px;
     outline: none;
   }
   &__item--active {
     background-color: $hoverColor;
     outline: none;
   }
+}
+.navigation--horizontal.navigation--center {
+  align-items: center;
 }
