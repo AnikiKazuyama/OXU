@@ -54,6 +54,9 @@
       padding: 10px 0;
       margin-top: -10px;
     }
+    &__navigation {
+      margin-bottom: 20px;
+    }
     &__content {
       padding-top: $ContentPaddingTop;
 
@@ -63,8 +66,10 @@
           padding: 10px;
         }
       }
-      .panel__center {
-        margin: 0 20px;
+
+      &-center {
+        padding: 16px 10px ;
+        margin-bottom: -$BookmarksMarginBottom;
       }
     }
 }

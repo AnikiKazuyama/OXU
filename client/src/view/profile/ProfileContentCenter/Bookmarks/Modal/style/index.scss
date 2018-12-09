@@ -1,0 +1,47 @@
+.bookmarks-modal {
+  width: 1000px;
+  color: white;
+  &__header {
+    position: relative;
+    height: 180px;
+    background-color: #82757d;
+    background-position: 50%; 
+    background-size: cover;
+    z-index: 1;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(83,77,95,0.55);
+    }
+    &-content {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      padding: 50px;
+      padding-bottom: 10px;
+      z-index: 5;
+      & > .button {
+        margin-right: 8px;
+      }
+      & > .cover {
+        width: 120px;
+        margin-bottom: -30px;
+      }
+    }
+  }
+  &__body {
+    font-size: 64px;
+    padding: 60px;
+    text-align: center;
+  }
+
+  &__title {
+    padding: 10px;
+    margin-right: auto;
+  }
+}
