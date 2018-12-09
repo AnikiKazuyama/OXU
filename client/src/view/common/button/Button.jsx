@@ -29,16 +29,18 @@ class Button extends PureComponent {
       children,
       title,
       fullWidth,
-      onClick
+      onClick,
+      color
     } = this.props;
 
     const Component = as;
     const fullWidthClassName = fullWidth ? 'button--full-width' : '';
+    const colorClassName = color ?  `button--${color}` : '';
 
     return (
       <Component
         tabIndex="0"
-        className={`button ${fullWidthClassName} ${className}`}
+        className={`button ${fullWidthClassName} ${className} ${colorClassName}`}
         title={title}
         onClick={onClick}
       >
