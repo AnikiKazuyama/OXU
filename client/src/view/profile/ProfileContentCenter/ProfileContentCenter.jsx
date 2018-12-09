@@ -3,17 +3,17 @@ import { Switch, Route } from 'react-router-dom';
 
 import Achivments from './Achivments';
 import RecentActivity from './RecentActivity';
-import Bookmarks from './Bookmarks';
+import { BookmarksContainer } from '../../../containers/profileContainer/ContentCenterContainer';
 import Settings from './Settings';
 
 import Card from '../../common/card';
 
-function ProfileContentCenter() {
+function ProfileContentCenter(props) {
   return (
-    <Card className="profile-page__content-center">
+    <Card className="profile-page__content-center" shadow>
       <Switch>
         <Route exact path="/im" component={Achivments} />
-        <Route path="/im/bookmarks" component={Bookmarks} />
+        <Route path="/im/bookmarks" component={BookmarksContainer} />
         <Route path="/im/settings" component={Settings} />
         <Route path="/im/recent-activity" component={RecentActivity} />
         <Route component={Achivments} />

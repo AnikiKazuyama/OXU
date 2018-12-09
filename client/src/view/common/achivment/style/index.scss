@@ -36,9 +36,9 @@
     cursor: default;
   }
   &__count {
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    width: 36%;
+    width: 25%;
     font-size: 14px;
   }
 }

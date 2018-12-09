@@ -38,7 +38,7 @@ function Achivment(props) {
           <div className="achivment__description">{description}</div>
         </div>
       </div>
-      <div className="achivment__bottom">
+      <div className="achivment__footer">
         <div className="achivment__status">
           { bottom() }
         </div>
