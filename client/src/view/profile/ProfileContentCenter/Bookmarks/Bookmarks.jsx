@@ -12,6 +12,7 @@ class Bookmarks extends PureComponent {
       <Table
         title={bookmarks[key].title}
         data={bookmarks[key].items}
+        key={key}
       />
     ));
   }
