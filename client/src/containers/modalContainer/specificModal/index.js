@@ -1,4 +1,4 @@
-import types from '../types';
+import types from '../../../constants/modalTypes';
 
 import BookMarkModal from '../../../view/profile/ProfileContentCenter/Bookmarks/Modal';
 
