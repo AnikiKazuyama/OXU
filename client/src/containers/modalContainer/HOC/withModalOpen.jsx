@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { actions } from '../redux/modal';
+import { actions } from '../../../redux/modal';
 
 function withModalOpen(Component) {
   return (props) => {
@@ -11,11 +11,9 @@ function withModalOpen(Component) {
         modalProps,
         modalType
       );
-
-      props.onClick ? props.onClick() : null;
     };
 
-    return <Component {...props} onClick={handleClick} />;
+    return <Component {...props} openModal={handleClick} />;
   };
 }
 

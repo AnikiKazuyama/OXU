@@ -1,41 +1,31 @@
 import React, { PureComponent } from 'react';
+
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import specifyModal from './specificModal';
+
 import ReactModal from 'react-modal';
+import specifyModal from './specificModal';
+
+import { actions } from '../../redux/modal';
 
 import './style/index.scss';
 
+const blank = () => null;
 class Modal extends PureComponent {
-  constructor() {
-    super();
-
-    this.state = {
-      isOpen: false
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps !== this.props) {
-      this.setState({
-        isOpen: nextProps.modalProps.open
-      });
-    }
-  }
-
   get appElement() {
     return document.getElementById('root');
   }
 
   handleClose = () => {
-    this.setState({ isOpen: false });
+    const { closeModal } = this.props;
+    closeModal();
   }
 
   render() {
-    const { isOpen } = this.state;
     const { handleClose } = this;
-    const { modalType, modalProps } = this.props;
+    const { modalType, modalProps, isOpen } = this.props;
 
-    const SpecifyModal = specifyModal[modalType] || '';
+    const SpecifyModal = specifyModal[modalType] || blank;
 
     return (
       <ReactModal
@@ -56,4 +46,13 @@ const mapStateToProps = state => (
   { ...state.modal }
 );
 
-export default connect(mapStateToProps, null)(Modal);
+
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators({
+    closeModal: actions.closeModal,
+    openModal: actions.openModal
+  },
+  dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

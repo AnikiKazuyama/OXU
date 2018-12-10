@@ -22,6 +22,7 @@ export const actions = {
 
 // Reducer //
 const initialState = {
+  isOpen: false,
   modalType: '',
   modalProps: {}
 };
@@ -30,6 +31,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case types.OPEN_MODAL:
       return {
+        isOpen: true,
         modalProps: action.modalProps,
         modalType: action.modalType
       };
