@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Img from '../../../../common/image';
 import Button from '../../../../common/button';
@@ -6,7 +7,12 @@ import Button from '../../../../common/button';
 import './style/index.scss';
 
 function Modal(props) {
-  const { title, hero, preview } = props;
+  const {
+    title,
+    hero,
+    preview,
+    onClose
+  } = props;
 
   const style = {
     backgroundImage: `url(${hero})`
@@ -25,9 +31,24 @@ function Modal(props) {
 
       <div className="bookmarks-modal__body">
         <div>BODY</div>
+        <Button onClick={onClose}>Close</Button>
       </div>
     </div>
   );
 }
+
+Modal.propTypes = {
+  title: PropTypes.string,
+  hero: PropTypes.string,
+  preview: PropTypes.string,
+  onClose: PropTypes.func
+};
+
+Modal.defaultProps = {
+  title: '',
+  hero: '',
+  preview: '',
+  onClose: () => null
+};
 
 export default Modal;
