@@ -17,7 +17,10 @@ class Comments extends Component {
       username: PropTypes.string,
       avatarSource: PropTypes.string,
       date: PropTypes.string,
-      reply: PropTypes.number,
+      reply: PropTypes.shape({
+        id: PropTypes.number,
+        string: PropTypes.string
+      }),
       comment: PropTypes.string
     }))
   }
@@ -52,15 +55,19 @@ class Comments extends Component {
 
   renderComments() {
     const { comments } = this.props;
+
     return comments.map((comment) => {
       const { replyCommentId } = this.state;
+
       this.commentRefs[comment.id] = createRef();
       const className = replyCommentId === comment.id ? 'comments__item--replied' : '';
+
       return (
         <CommentsItem
           className={className}
           onReplyClick={this.handleReplyClick}
           refItem={this.commentRefs[comment.id]}
+          key={comment.id}
           {...comment}
         />
       );

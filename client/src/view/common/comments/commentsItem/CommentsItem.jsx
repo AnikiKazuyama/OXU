@@ -31,7 +31,10 @@ class CommentsItem extends Component {
     }),
     comment: PropTypes.string,
     onReplyClick: PropTypes.func,
-    refItem: PropTypes.func
+    refItem: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    ])
   };
 
   handleReplyClick = () => {
