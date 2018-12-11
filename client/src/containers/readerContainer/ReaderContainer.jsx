@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import Reader from '../../view/reader';
 
-import RestService from '../../utils/restServive';
+import MangaRequests from '../../utils/restService/mangaPagestRequests';
 
 class ReaderContainer extends Component {
   static defaultProps = {
@@ -93,7 +93,7 @@ class ReaderContainer extends Component {
 
   async loadChapter() {
     const { match: { params: { mangaName, number } } } = this.props;
-    const result = await RestService.getChapter(mangaName, number);
+    const result = await MangaRequests.getChapter(mangaName, number);
     this.setState({
       chapter: {
         ...result
