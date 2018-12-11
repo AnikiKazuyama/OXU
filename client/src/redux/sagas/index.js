@@ -1,5 +1,13 @@
-function* mySaga() {
-  yield console.log('hallo saga');
+import { all } from 'redux-saga/effects';
+
+import helloSaga from './watchers/helloSaga';
+import profileWatcher from './watchers/profileWatcher';
+
+function* rootSaga() {
+  yield all([
+    helloSaga(),
+    profileWatcher()
+  ]);
 }
 
-export default mySaga;
+export default rootSaga;
