@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import ReactModal from 'react-modal';
 import specifyModal from './specificModal';
 
-import { actions } from '../../redux/modal';
+import { actions } from '../../redux/modules/modal';
 
 import './style/index.scss';
 
