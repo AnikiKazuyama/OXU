@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import clouds from '../../../../public/imgs/clouds.jpg';
+
 import './style/index.scss';
 
 function Hero(props) {
@@ -23,7 +25,7 @@ Hero.propTypes = {
 
 Hero.defaultProps = {
   className: '',
-  url: ''
+  url: clouds
 };
 
 export default Hero;
