@@ -6,13 +6,11 @@ import ProfileHeader from './ProfileHeader';
 import ProfileContentCenter from './ProfileContentCenter';
 
 import Card from '../common/card';
-import ProfileContent from '../common/panel';
 import Hero from '../common/hero';
 import Navigation, { NavItem } from '../common/navigation';
 
 import withWrapper from '../../HOC/withWrapper';
 
-import cloudsImage from '../../../public/imgs/clouds.jpg';
 import './style/index.scss';
 
 const ProfileContentWithWrapper = withWrapper(ProfileContentCenter);
@@ -30,10 +28,12 @@ class Profile extends Component {
   componentDidMount() {}
 
   render() {
+    const { experience, hero, nickname } = this.props.profile;
+
     return (
       <div className="profile-page">
-        <Hero url={cloudsImage} />
-        <ProfileHeader />
+        <Hero url={hero} />
+        <ProfileHeader experience={experience} nickname={nickname} />
         <Card className="profile-page__navigation">
           <NavigationWithWrapper>
             <NavItem
