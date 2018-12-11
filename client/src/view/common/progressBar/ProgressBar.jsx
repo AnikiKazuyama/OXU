@@ -1,9 +1,9 @@
-import React, { Component, createRef } from 'react';
+import React, { PureComponent, createRef } from 'react';
 import PropTypes from 'prop-types';
 
 import './style/index.scss';
 
-class ProgressBar extends Component {
+class ProgressBar extends PureComponent {
   static defaultProps = {
     max: 100,
     current: 0,
@@ -29,6 +29,13 @@ class ProgressBar extends Component {
   }
 
   componentDidMount() {
+    this.initEvents();
+    setTimeout(() => {
+      this.calcWidht();
+    }, 1000);
+  }
+
+  componentWillReceiveProps() {
     this.initEvents();
     setTimeout(() => {
       this.calcWidht();
@@ -61,7 +68,7 @@ class ProgressBar extends Component {
     const heightTransform = parentBBox.height / textBBox.height;
 
     const value = widthTransform < heightTransform ? widthTransform : heightTransform;
-    textNode.setAttribute('font-size', `${0.9 * value - 0.08}em`);
+    textNode.setAttribute('font-size', `${1 * value - 0.08}em`);
     textNode.setAttribute('dy', `${(1 * value) / 2}px`);
   }
 

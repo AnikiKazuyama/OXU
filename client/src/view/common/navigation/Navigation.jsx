@@ -9,7 +9,7 @@ class Navigation extends Component {
   static defaultProps = {
     horizontal: false,
     className: '',
-    children: null, 
+    children: null,
     center: false
   }
 
