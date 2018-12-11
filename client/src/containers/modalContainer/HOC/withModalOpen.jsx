@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { actions } from '../../../redux/modal';
+import { actions } from '../../../redux/modules/modal';
 
 function withModalOpen(Component) {
   return (props) => {
