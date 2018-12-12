@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import withLoadable from '../../HOR/withLoadable';
+import withLoadable, { INITIAL_LOADABLE_STATE } from '../../HOR/withLoadable';
 
 // Types
 
@@ -54,7 +54,7 @@ export const actions = {
 
 // Selectors
 
-export const getProfile = createSelector(state => state.profile, user => user);
+export const getProfile = createSelector(state => state.profile.result, user => user);
 
 // Reducers
 
@@ -65,30 +65,24 @@ const initialExp = {
 };
 
 const initialState = {
-  nickname: '',
-  hero: '',
-  avatar: '',
-  experience: initialExp
+  result: {
+    nickname: '',
+    hero: '',
+    avatar: '',
+    experience: initialExp
+  },
+  status: { ...INITIAL_LOADABLE_STATE }
 };
 
 function profile(state = initialState, action) {
   switch (action.type) {
-    case (types.LOAD_PROFILE):
-      return {
-        ...state
-      };
-
     case (types.LOAD_PROFILE_SUCCESS):
       return {
         ...state,
-        ...action.data,
-        experience: { ...action.data.experience }
-      };
-
-    case (types.LOAD_PROFILE_FAIL):
-      return {
-        ...state,
-        ...action.data
+        result: {
+          ...action.data,
+          experience: { ...action.data.experience }
+        }
       };
 
     default:
