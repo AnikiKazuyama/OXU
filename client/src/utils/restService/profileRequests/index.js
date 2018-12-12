@@ -7,12 +7,12 @@ function sleep(ms) {
 
 class ProfileRequests {
   static async getFakeProfile() {
-    await sleep(1232);
+    await sleep(132);
     return new Promise(resolve => resolve(profile));
   }
 
   static async getFakeBookmarks() {
-    await sleep(123);
+    await sleep(1232);
     return new Promise(resolve => resolve(bookmarks));
   }
 
