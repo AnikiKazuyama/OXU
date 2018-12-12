@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-function withLoading(Comp, where) {
-  return class WrappedComponent extends Component {
+function withLoading(Comp) {
+  return class WrappedComponent extends PureComponent {
     componentDidMount() {
       const { load } = this.props;
 
-      if (!this.props[where].success) {
+      if (!this.props.status.success) {
         load();
       }
     }
 
     render() {
+      const { load, ...rest } = this.props;
+
       return (
-        <Comp {...this.props} />
+        <Comp {...rest} />
       );
     }
   };
