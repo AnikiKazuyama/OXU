@@ -8,23 +8,29 @@ export const noopReducer = state => state;
 
 const errorReducer = (state, action) => ({
   ...state,
-  error: action.payload,
-  isLoading: false,
-  success: false
+  status: {
+    error: action.error,
+    isLoading: false,
+    success: false
+  }
 });
 
 const successReducer = state => ({
   ...state,
-  error: null,
-  isLoading: false,
-  success: true
+  status: {
+    error: null,
+    isLoading: false,
+    success: true
+  }
 });
 
 const isLoadingReducer = state => ({
   ...state,
-  error: null,
-  isLoading: true,
-  success: false
+  status: {
+    error: null,
+    isLoading: true,
+    success: false
+  }
 });
 
 const withLoadable = (actionTypes) => {
