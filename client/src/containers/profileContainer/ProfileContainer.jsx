@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getProfile, actions as profileActions } from '../../redux/modules/profile';
 
-import withLoading from '../../HOC/withLoading';
-
 import Profile from '../../view/profile';
+
+import withLoading from '../../HOC/withLoading';
 
 class ProfileContainer extends PureComponent {
   render() {
@@ -18,7 +18,8 @@ class ProfileContainer extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  profile: getProfile(state)
+  profile: getProfile(state),
+  status: state.profile.status
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -28,4 +29,6 @@ const mapDispatchToProps = dispatch => ({
   dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withLoading(ProfileContainer, 'profile'));
+const ProfileWithLoading = withLoading(ProfileContainer);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileWithLoading);

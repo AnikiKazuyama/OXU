@@ -7,6 +7,7 @@ import defaultAvatar from '../../../assets/img/defaultAvatar.jpg';
 
 function ProfileHeader(props) {
   const { experience, nickname, avatar } = props;
+
   return (
     <div className="profile-page__header">
       <div className="wrapper">

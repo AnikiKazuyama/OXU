@@ -30,10 +30,10 @@ $minHeightPad: 30px;
         }
         &__preview {
             position: relative;
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0;
             width: 175px;
+            & > .cover {
+                display: inline;
+            }
             & span, & img {
                 height: 100%;
                 width: 100%;

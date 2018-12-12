@@ -37,6 +37,9 @@ $contentLeftWidth: 210px;
         background-color: #ffffff;
         border: 10px solid #ffffff;
         box-sizing: content-box;
+        & > .cover {
+            height: 100%;
+        }
         & img {
             width: 100%;
             height: 100%;

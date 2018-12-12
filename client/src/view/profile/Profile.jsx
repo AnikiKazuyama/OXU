@@ -28,12 +28,21 @@ class Profile extends Component {
   componentDidMount() {}
 
   render() {
-    const { experience, hero, nickname } = this.props.profile;
+    const {
+      experience,
+      hero,
+      nickname,
+      avatar
+    } = this.props.profile;
 
     return (
       <div className="profile-page">
         <Hero url={hero} />
-        <ProfileHeader experience={experience} nickname={nickname} />
+        <ProfileHeader
+          experience={experience}
+          nickname={nickname}
+          avatar={avatar}
+        />
         <Card className="profile-page__navigation">
           <NavigationWithWrapper>
             <NavItem

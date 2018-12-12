@@ -6,7 +6,7 @@ import RTabel from 'react-table';
 import './style/index.scss';
 
 function Table(props) {
-  const { data, columns } = props;
+  const { data = [], columns } = props;
   const columnConfig = {
     // Renderers
     Cell: undefined,
