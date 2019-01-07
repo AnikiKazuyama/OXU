@@ -7,7 +7,7 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "jslint": "eslint --ext .js --ext .jsx src",
-    "start": "webpack-dev-server --mode=development && npm run jslint"
+    "start": "webpack-dev-server --host 0.0.0.0 --mode=development && npm run jslint"
   },
   "author": "",
   "license": "ISC",

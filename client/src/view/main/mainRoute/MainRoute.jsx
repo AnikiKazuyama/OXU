@@ -11,7 +11,8 @@ import notFound from '../notFound';
 function MainRoute() {
   return (
     <Switch>
-      <Route exact path="/catalog" component={CatalogContainer} />
+      <Route exact path="/catalog/:page" component={CatalogContainer} />
+      <Route path="/catalog" component={CatalogContainer} />
       <Route exact path="/read" component={ReaderRoute} />
       <Route path="/im" component={ProfileContainer} />
       <Route path="/manga" component={MangaRoute} />

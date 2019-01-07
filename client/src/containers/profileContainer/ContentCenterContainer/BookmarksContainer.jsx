@@ -26,6 +26,6 @@ const mapDispatchToProps = dispatch => ({
   }, dispatch)
 });
 
-const BookmarksWithLoading = withLoading(BookmarksContainer, 'bookmarks');
+const BookmarksWithLoading = withLoading(BookmarksContainer, { cached: false, name: 'Bookmarks' });
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(BookmarksWithLoading));

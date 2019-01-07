@@ -6,7 +6,8 @@ import withLoadable, { INITIAL_LOADABLE_STATE } from '../../HOR/withLoadable';
 export const types = {
   LOAD_BOOKMARKS: 'LOAD_BOOKMARKS',
   LOAD_BOOKMARKS_SUCCESS: 'LOAD_BOOKMARKS_SUCCESS',
-  LOAD_BOOKMARKS_FAIL: 'LOAD_BOOKMARKS_FAIL'
+  LOAD_BOOKMARKS_FAIL: 'LOAD_BOOKMARKS_FAIL',
+  CREATE_LIST: 'CREATE_LIST'
 };
 
 // Actions
@@ -39,7 +40,12 @@ export const actions = {
 
 export const getBookmarks = createSelector(state => state.bookmarks.result, bookmarks => bookmarks);
 
-const initialState = { result: {}, status: { ...INITIAL_LOADABLE_STATE } };
+const initialState = {
+  result: {
+    listNames: []
+  },
+  status: { ...INITIAL_LOADABLE_STATE }
+};
 
 const bookmarks = (state = initialState, action) => {
   switch (action.type) {

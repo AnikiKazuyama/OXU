@@ -29,6 +29,6 @@ const mapDispatchToProps = dispatch => ({
   dispatch)
 });
 
-const ProfileWithLoading = withLoading(ProfileContainer);
+const ProfileWithLoading = withLoading(ProfileContainer, { cached: true, name: 'Profile' });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileWithLoading);

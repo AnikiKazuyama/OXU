@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import filterItems from '../../constants/catalogFilters';
+import { connect } from 'react-redux';
+import { getMedia, getPages, actions as catalogActions } from '../../redux/modules/catalog';
+
+import withLoading from '../../HOC/withLoading';
+
 import { CatalogWithWrapper } from '../../view/catalog/Catalog';
-import testData from './testData';
+import filterItems from '../../constants/catalogFilters';
 
-function CatalogContainer() {
-  return <CatalogWithWrapper filterItems={filterItems} items={testData.result} />;
+class CatalogContainer extends Component {
+  render() {
+    const { media } = this.props;
+    return (
+      <CatalogWithWrapper 
+        filterItems={filterItems}
+        items={media}
+      />
+    );
+  }
 }
 
-export default CatalogContainer;
+function mapStateToProps(state) {
+  return ({
+    pages: getPages(state),
+    media: getMedia(state)
+  });
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+  const initialPage = ownProps.match.params.page || 1;
+
+  return ({
+    load: (page = initialPage, filterOptions) => (
+      dispatch(catalogActions.loadCatalog(page, filterOptions))
+    )
+  });
+}
+
+const CatalogContainerWithLoad = withLoading(CatalogContainer);
+
+export default connect(mapStateToProps, mapDispatchToProps)(CatalogContainerWithLoad);
