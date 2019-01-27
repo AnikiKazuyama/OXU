@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMedia, getPages, actions as catalogActions } from '../../redux/modules/catalog';
 
-import withLoading from '../../HOC/withLoading';
+import withPageLoading from '../../HOC/withPageLoading';
 
 import { CatalogWithWrapper } from '../../view/catalog/Catalog';
 import filterItems from '../../constants/catalogFilters';
@@ -12,7 +12,7 @@ class CatalogContainer extends Component {
   render() {
     const { media } = this.props;
     return (
-      <CatalogWithWrapper 
+      <CatalogWithWrapper
         filterItems={filterItems}
         items={media}
       />
@@ -31,12 +31,12 @@ function mapDispatchToProps(dispatch, ownProps) {
   const initialPage = ownProps.match.params.page || 1;
 
   return ({
-    load: (page = initialPage, filterOptions) => (
-      dispatch(catalogActions.loadCatalog(page, filterOptions))
-    )
+    load: (page = initialPage, filterOptions) => {
+      return dispatch(catalogActions.loadCatalog(page, filterOptions))
+    }
   });
 }
 
-const CatalogContainerWithLoad = withLoading(CatalogContainer);
+const CatalogContainerWithpageLoad = withPageLoading(CatalogContainer);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CatalogContainerWithLoad);
+export default connect(mapStateToProps, mapDispatchToProps)(CatalogContainerWithpageLoad);
