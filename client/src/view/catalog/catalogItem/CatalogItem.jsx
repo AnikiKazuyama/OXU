@@ -43,13 +43,15 @@ class CatalogItem extends Component {
     const {
       title,
       content,
-      source
+      preview
     } = this.props;
+
+    const a = title ? title : 'иди нахуй';
 
     return (
       <Card className="catalog-item" shadow>
         <div className="catalog-item__preview">
-          <Image src={source} />
+          <Image src={preview} />
           <span className="catalog-item__title">{ title }</span>
         </div>
         <div className="catalog-item__content">
@@ -68,7 +70,7 @@ CatalogItem.defaultProps = {
   title: 'Title',
   content: 'Content',
   genres: [],
-  source: '',
+  preview: '',
   social: []
 };
 
@@ -76,7 +78,7 @@ CatalogItem.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   genres: PropTypes.arrayOf(PropTypes.string),
-  source: PropTypes.string,
+  preview: PropTypes.string,
   social: PropTypes.arrayOf(PropTypes.shape({
     icon: PropTypes.string,
     count: PropTypes.number

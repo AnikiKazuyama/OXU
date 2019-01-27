@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CatalogItem from './catalogItem';
 import { Filter, FilterItem } from '../common/filter';
-import Sticky from '../common/sticky';
+import Pagination from '../../containers/PaginationContainer';
 
 import './style/index.scss';
 
@@ -33,7 +33,7 @@ class Catalog extends PureComponent {
       title: PropTypes.string,
       content: PropTypes.string,
       genres: PropTypes.arrayOf(PropTypes.string),
-      source: PropTypes.string,
+      preview: PropTypes.string,
       social: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.string,
         count: PropTypes.number
@@ -57,34 +57,41 @@ class Catalog extends PureComponent {
 
     return items.map((item, index) => {
       const key = index;
+      if (item) {
+        return (
+          <CatalogItem
+            title={item.title}
+            content={item.content}
+            genres={item.genres}
+            preview={item.preview}
+            social={item.social}
+            key={key}
+          />
+        );
+      }
 
-      return (
-        <CatalogItem
-          title={item.title}
-          content={item.content}
-          genres={item.genres}
-          source={item.source}
-          social={item.social}
-          key={key}
-        />
-      );
+      return null;
     });
   }
 
   render() {
-    return (
-      <div className="catalog">
-        <div className="catalog__filter-container">
-          <Filter className="sticky">
-            { this.renderFilterItems() }
-          </Filter>
-        </div>
+    if (this.props.items.length) {
+      return (
+        <div className="catalog">
+          <div className="catalog__filter-container">
+            <Filter className="sticky">
+              { this.renderFilterItems() }
+            </Filter>
+          </div>
 
-        <div className="catalog__list">
-          { this.renderCatalogList() }
+          <div className="catalog__list">
+            { this.renderCatalogList() }
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+
+    return null;
   }
 }
 
@@ -93,6 +100,7 @@ class CatalogWithWrapper extends PureComponent {
     return (
       <div className="wrapper">
         <Catalog {...this.props} />
+        <Pagination className="catalog__pagination" />
       </div>
     );
   }
