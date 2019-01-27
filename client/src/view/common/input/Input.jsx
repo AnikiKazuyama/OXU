@@ -7,6 +7,7 @@ class Input extends Component {
     placeholder: '',
     propValue: '',
     onChange: () => {},
+    onKeyDown: () => {},
     spellCheck: false
   }
 
@@ -18,6 +19,7 @@ class Input extends Component {
       PropTypes.number
     ]),
     onChange: PropTypes.func,
+    onKeyDown: PropTypes.func,
     spellCheck: PropTypes.bool
   }
 
@@ -38,11 +40,18 @@ class Input extends Component {
     }, () => onChange(this.state.text));
   }
 
+  clear = () => {
+    this.setState({
+      text: ''
+    });
+  }
+
   render() {
     const {
       className,
       placeholder,
-      spellCheck
+      spellCheck,
+      onKeyDown
     } = this.props;
     const { text } = this.state;
 
@@ -51,6 +60,7 @@ class Input extends Component {
         className={className}
         type="text"
         placeholder={placeholder}
+        onKeyDown={onKeyDown}
         onChange={this.handleChange}
         value={text}
         spellCheck={spellCheck}
