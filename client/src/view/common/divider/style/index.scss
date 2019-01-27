@@ -1,0 +1,15 @@
+.divider {
+  display: block;
+  width: 100%;
+  height: 0px;
+  border-bottom: 1px solid #454c5b;
+  padding: 5px 0px;
+  &--vertical {
+    display: inline-block;
+    width: 0px;
+    height: auto;
+    border-right: 1px solid #454c5b;
+    border-bottom: 0px;
+    margin: 0px 5px;
+  }
+}
