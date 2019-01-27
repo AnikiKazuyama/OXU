@@ -1,4 +1,4 @@
-import { put, call, select } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 
 import CatalogRequests from '../../../utils/restService/catalogRequests';
 import { actions as catalogActions } from '../../modules/catalog';

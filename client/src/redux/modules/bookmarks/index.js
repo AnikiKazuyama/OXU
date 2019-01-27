@@ -7,7 +7,9 @@ export const types = {
   LOAD_BOOKMARKS: 'LOAD_BOOKMARKS',
   LOAD_BOOKMARKS_SUCCESS: 'LOAD_BOOKMARKS_SUCCESS',
   LOAD_BOOKMARKS_FAIL: 'LOAD_BOOKMARKS_FAIL',
-  CREATE_LIST: 'CREATE_LIST'
+  ADD_BOORMARK: 'ADD_BOORMARK',
+  ADD_BOORMARK_SUCCESS: 'ADD_BOORMARK_SUCCESS',
+  ADD_BOORMARK_FAIL: 'ADD_BOORMARK_FAIL'
 };
 
 // Actions
@@ -26,19 +28,37 @@ const loadBookmarksFail = error => ({
   error
 });
 
-const addTo = shortInfo => ({
-  type: types.ADD_TO,
-  data: shortInfo
+const addBookmark = (to, bookmarkId) => ({
+  type: types.ADD_BOORMARK,
+  payload: {
+    to,
+    bookmarkId
+  }
+});
+
+const addBookmarkSuccess = (to, bookmark) => ({
+  type: types.ADD_BOORMARK_SUCCESS,
+  payload: {
+    to,
+    bookmark
+  }
+});
+
+const addBookmarkFail = error => ({
+  type: types.ADD_BOORMARK_FAIL,
+  error
 });
 
 export const actions = {
   loadBookmarks,
   loadBookmarksSuccess,
   loadBookmarksFail,
-  addTo
+  addBookmark,
+  addBookmarkSuccess,
+  addBookmarkFail
 };
 
-export const getBookmarks = createSelector(state => state.bookmarks.result, bookmarks => bookmarks);
+export const getBookmarks = state => state.bookmarks.result;
 
 const initialState = {
   result: {
@@ -56,7 +76,24 @@ const bookmarks = (state = initialState, action) => {
           ...action.data
         }
       });
+    case (types.addBookmarkSuccess): {
+      if (action.to === 'Done' || action.to === 'Reading' || action.to === 'Favorite') {
+        const { result } = state;
+        const { to, bookmark } = action.payload;
 
+        return ({
+          ...state,
+          result: {
+            ...result,
+            [result[to]]: {
+              ...result[to],
+              bookmark
+            }
+          }
+        });
+      }
+      return state;
+    }
     default:
       return state;
   }

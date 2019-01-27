@@ -15,4 +15,20 @@ function* loadBookmarks() {
   }
 }
 
-export default loadBookmarks;
+function* addBookmark(action) {
+  const { addBookmarkSuccess, addBookmarkFail } = bookmarksActions;
+  const { bookmarkId, to } = action.payload;
+
+  const response = yield call(ProfileRequests.addBookmark, to, bookmarkId);
+
+  if (response) {
+    yield put(addBookmarkSuccess(to, response.result));
+  } else {
+    yield put(addBookmarkFail({ errorCode: 13, errorMessage: 'Focking hell' }));
+  }
+}
+
+export {
+  loadBookmarks,
+  addBookmark
+};
