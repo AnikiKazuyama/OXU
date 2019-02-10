@@ -11,6 +11,7 @@ import withLoading from '../../HOC/withLoading';
 class ProfileContainer extends PureComponent {
   render() {
     const { profile } = this.props;
+
     return (
       <Profile profile={profile} />
     );
@@ -24,7 +25,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
-    load: profileActions.loadProfile
+    load: profileActions.load
   },
   dispatch)
 });

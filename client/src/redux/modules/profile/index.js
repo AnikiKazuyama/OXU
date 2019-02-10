@@ -1,60 +1,31 @@
 import { createSelector } from 'reselect';
-import withLoadable, { INITIAL_LOADABLE_STATE } from '../../HOR/withLoadable';
+import { createAction, handleAction } from 'redux-actions';
+import withLoadable from '../../HOR/withLoadable';
+import generateLoadableActions from '../../helpers/factories/loadableFactory';
 
 // Types
+const moduleName = 'profile';
+
+const loadable = generateLoadableActions(moduleName);
 
 export const types = {
   CHANGE_EXP: 'CHANGE_EXP',
   CHANGE_AVATAR: 'CHANGE_AVATAR',
   CHANGE_HERO: 'CHANGE_HERO',
-  LOAD_PROFILE: 'LOAD_PROFILE',
-  LOAD_PROFILE_SUCCESS: 'LOAD_PROFILE_SUCCESS',
-  LOAD_PROFILE_FAIL: 'LOAD_PROFILE_FAIL'
+  ...loadable.types
 };
 
 // Actions
-
-const changeExp = exp => ({
-  type: types.CHANGE_EXP,
-  exp
-});
-
-const changeAvatar = url => ({
-  type: types.CHANGE_AVATAR,
-  url
-});
-
-const changeHero = url => ({
-  type: types.CHANGE_HERO,
-  url
-});
-
-const loadProfile = () => ({
-  type: types.LOAD_PROFILE
-});
-
-const loadProfileSuccess = response => ({
-  type: types.LOAD_PROFILE_SUCCESS,
-  data: response
-});
-
-const loadProfileFail = error => ({
-  type: types.LOAD_PROFILE,
-  error
-});
+const changeExp = createAction(types.CHANGE_EXP, exp => exp);
+const changeAvatar = createAction(types.CHANGE_AVATAR, avatarUrl => avatarUrl);
+const changeHero = createAction(types.CHANGE_HERO, heroUrl => heroUrl);
 
 export const actions = {
   changeExp,
   changeAvatar,
   changeHero,
-  loadProfile,
-  loadProfileSuccess,
-  loadProfileFail
+  ...loadable.actions
 };
-
-// Selectors
-
-export const getProfile = createSelector(state => state.profile.result, user => user);
 
 // Reducers
 
@@ -65,33 +36,28 @@ const initialExp = {
 };
 
 const initialState = {
-  result: {
-    nickname: '',
-    hero: '',
-    avatar: '',
-    experience: initialExp
-  },
-  status: { ...INITIAL_LOADABLE_STATE }
+  nickname: '',
+  hero: '',
+  avatar: '',
+  experience: initialExp
 };
 
-function profile(state = initialState, action) {
-  switch (action.type) {
-    case (types.LOAD_PROFILE_SUCCESS):
-      return {
-        ...state,
-        result: {
-          ...action.data,
-          experience: { ...action.data.experience }
-        }
-      };
-
-    default:
-      return state;
-  }
+function handleLoadSuccess(state, { payload }) {
+  return ({
+    ...state,
+    ...payload.data
+  });
 }
 
+const profileReducer = handleAction(
+  actions.loadSuccess,
+  handleLoadSuccess,
+  initialState
+);
+
+// Selectors
+export const getProfile = createSelector(state => state.profile.result, user => user);
+
 export default withLoadable({
-  isLoadingAction: types.LOAD_PROFILE,
-  successAction: types.LOAD_PROFILE_SUCCESS,
-  errorAction: types.LOAD_PROFILE_FAIL
-})(profile);
+  ...loadable.actions
+})(profileReducer);

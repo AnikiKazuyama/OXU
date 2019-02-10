@@ -4,14 +4,14 @@ import ProfileRequests from '../../../utils/restService/profileRequests';
 import { actions as profileActions } from '../../modules/profile';
 
 function* loadProfile() {
-  const { loadProfileSuccess, loadProfileFail } = profileActions;
+  const { loadSuccess, loadFail } = profileActions;
 
   const response = yield call(ProfileRequests.getFakeProfile);
 
   if (response) {
-    yield put(loadProfileSuccess(response));
+    yield put(loadSuccess(response));
   } else {
-    yield put(loadProfileFail({ errorCode: 13, errorMessage: 'Focking hell' }));
+    yield put(loadFail({ errorCode: 13, errorMessage: 'Focking hell' }));
   }
 }
 
