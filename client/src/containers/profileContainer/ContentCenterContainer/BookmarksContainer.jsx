@@ -22,7 +22,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
-    load: bookmarksActions.loadBookmarks
+    load: bookmarksActions.load
   }, dispatch)
 });
 

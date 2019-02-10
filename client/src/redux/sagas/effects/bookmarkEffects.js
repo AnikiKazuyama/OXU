@@ -4,14 +4,14 @@ import ProfileRequests from '../../../utils/restService/profileRequests';
 import { actions as bookmarksActions } from '../../modules/bookmarks';
 
 function* loadBookmarks() {
-  const { loadBookmarksSuccess, loadBookmarksFail } = bookmarksActions;
+  const { loadSuccess, loadFail } = bookmarksActions;
 
   const response = yield call(ProfileRequests.getFakeBookmarks);
 
   if (response) {
-    yield put(loadBookmarksSuccess(response));
+    yield put(loadSuccess(response));
   } else {
-    yield put(loadBookmarksFail({ errorCode: 13, errorMessage: 'Focking hell' }));
+    yield put(loadFail({ errorCode: 13, errorMessage: 'Focking hell' }));
   }
 }
 
