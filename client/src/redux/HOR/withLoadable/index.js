@@ -1,50 +1,50 @@
+import { combineReducers } from 'redux';
+import { handleActions } from 'redux-actions';
+
 export const INITIAL_LOADABLE_STATE = {
   error: null,
   isLoading: false,
   success: false
 };
 
-export const noopReducer = state => state;
-
-const errorReducer = (state, action) => ({
-  ...state,
-  status: {
-    error: action.error,
+function handleError(state, { payload }) {
+  return ({
+    ...state,
+    error: payload.error,
     isLoading: false,
     success: false
-  }
-});
+  });
+}
 
-const successReducer = state => ({
-  ...state,
-  status: {
+function handleSuccess(state) {
+  return ({
+    ...state,
     error: null,
     isLoading: false,
     success: true
-  }
-});
+  });
+}
 
-const isLoadingReducer = state => ({
-  ...state,
-  status: {
+function handleLoading(state) {
+  return ({
+    ...state,
     error: null,
     isLoading: true,
     success: false
-  }
-});
+  });
+}
 
 const withLoadable = (actionTypes) => {
-  const actionReducerMap = {
-    [actionTypes.isLoadingAction]: isLoadingReducer,
-    [actionTypes.successAction]: successReducer,
-    [actionTypes.errorAction]: errorReducer
-  };
+  const status = handleActions(
+    new Map([
+      [actionTypes.load, handleLoading],
+      [actionTypes.loadSuccess, handleSuccess],
+      [actionTypes.loadError, handleError]
+    ]),
+    INITIAL_LOADABLE_STATE
+  );
 
-  return baseReducer => (state, action) => {
-    const reducerFunction = actionReducerMap[action.type] || noopReducer;
-    const newState = reducerFunction(state, action);
-    return baseReducer(newState, action);
-  };
+  return baseReducer => (combineReducers({ status, result: baseReducer }));
 };
 
 export default withLoadable;
