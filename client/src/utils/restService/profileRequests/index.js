@@ -8,7 +8,7 @@ function sleep(ms) {
 
 class ProfileRequests {
   static async getFakeProfile() {
-    await sleep(132);
+    await sleep(1322);
     return new Promise(resolve => resolve(profile));
   }
 
