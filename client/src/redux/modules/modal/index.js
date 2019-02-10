@@ -1,24 +1,23 @@
+import { createAction, handleActions } from 'redux-actions';
+
 export const types = {
   OPEN_MODAL: 'OPEN_MODAL',
   CLOSE_MODAL: 'CLOSE_MODAL'
 };
 
 // ACTIONS //
-const openModal = ({ modalType, modalProps }) => ({
-  type: types.OPEN_MODAL,
-  modalType,
-  modalProps
-});
+const openModal = createAction(
+  types.OPEN_MODAL,
+  ({ modalType, modalProps }) => ({ modalType, modalProps })
+);
 
-const closeModal = () => ({
-  type: types.CLOSE_MODAL
-});
+const closeModal = createAction(types.CLOSE_MODAL);
 
 export const actions = {
   openModal,
   closeModal
 };
-// // // // // // //
+
 
 // Reducer //
 const initialState = {
@@ -27,19 +26,25 @@ const initialState = {
   modalProps: {}
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case types.OPEN_MODAL:
-      return {
-        isOpen: true,
-        modalProps: action.modalProps,
-        modalType: action.modalType
-      };
-    case types.CLOSE_MODAL:
-      return initialState;
-    default:
-      return state;
-  }
-};
+function handleModalOpen(state, { payload }) {
+  return ({
+    ...state,
+    isOpen: true,
+    modalProps: payload.modalProps,
+    modalType: payload.modalType
+  });
+}
 
-// // // // // // //
+function handleModalClose() {
+  return ({ ...initialState });
+}
+
+const modalReducer = handleActions(
+  new Map([
+    [actions.openModal, handleModalOpen],
+    [actions.closeModal, handleModalClose]
+  ]),
+  initialState
+);
+
+export default modalReducer;

@@ -24,7 +24,7 @@ class Modal extends PureComponent {
   render() {
     const { handleClose } = this;
     const { modalType, modalProps, isOpen } = this.props;
-
+    console.log(modalType)
     const SpecifyModal = specifyModal[modalType] || blank;
 
     return (
