@@ -28,18 +28,9 @@ class ProgressBar extends PureComponent {
     this.textLvlRef = createRef();
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     this.initEvents();
-    setTimeout(() => {
-      this.calcWidht();
-    }, 1000);
-  }
-
-  componentWillReceiveProps() {
-    this.initEvents();
-    setTimeout(() => {
-      this.calcWidht();
-    }, 1000);
+    this.calcWidht();
   }
 
   getTextExperience() {
@@ -68,7 +59,8 @@ class ProgressBar extends PureComponent {
     const heightTransform = parentBBox.height / textBBox.height;
 
     const value = widthTransform < heightTransform ? widthTransform : heightTransform;
-    textNode.setAttribute('font-size', `${1 * value - 0.08}em`);
+
+    textNode.setAttribute('font-size', `${1 * value - 0.05}em`);
     textNode.setAttribute('dy', `${(1 * value) / 2}px`);
   }
 
