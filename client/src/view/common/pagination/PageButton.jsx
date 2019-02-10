@@ -50,7 +50,7 @@ pageButton.defaultProps = {
 
 pageButton.propTypes = {
   isActive: PropTypes.bool,
-  page: PropTypes.number,
+  page: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onClick: PropTypes.func,
   className: PropTypes.string,
   children: PropTypes.element || PropTypes.node

@@ -50,6 +50,7 @@ class Pagination extends Component {
   createElipsis = () => (
     <PaginationButton
       page="..."
+      key={Math.random()}
     />
   );
 
@@ -61,6 +62,7 @@ class Pagination extends Component {
         isActive={page === currentPage}
         page={page}
         onClick={this.handleNavigation}
+        key={Math.random()}
       />
     );
   }
@@ -90,6 +92,7 @@ class Pagination extends Component {
       <PageNext
         onClick={onClick}
         currentPage={currentPage}
+        key={Math.random()}
       />
     );
   }
@@ -103,6 +106,7 @@ class Pagination extends Component {
       <PagePrev
         onClick={onClick}
         currentPage={currentPage}
+        key={Math.random()}
       />
     );
   }
