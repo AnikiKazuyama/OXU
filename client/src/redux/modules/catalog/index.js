@@ -1,81 +1,50 @@
 import { createSelector } from 'reselect';
-import withLoadable, { INITIAL_LOADABLE_STATE } from '../../HOR/withLoadable';
+import { createAction, handleAction } from 'redux-actions';
+
+import withLoadable from '../../HOR/withLoadable';
+import generateLoadableActions from '../../helpers/factories/loadableFactory';
+
+const moduleName = 'catalog';
+const loadable = generateLoadableActions(moduleName);
 
 // Types
-
 export const types = {
-  LOAD_CATALOG: 'LOAD_CATALOG',
-  LOAD_CATALOG_SUCCESS: 'LOAD_CATALOG_SUCCESS',
-  LOAD_CATALOG_FAIL: 'LOAD_CATALOG_FAIL'
+  ...loadable.types
 };
 
 // Actions
-
-function loadCatalog(page, filterOptions) {
-  return ({
-    type: types.LOAD_CATALOG,
-    payload: {
-      page,
-      filterOptions
-    }
-  });
-}
-
-function loadCatalogSucess({ totalPages, totalItems, result }) {
-  return ({
-    type: types.LOAD_CATALOG_SUCCESS,
-    payload: {
-      totalPages,
-      totalItems,
-      media: result
-    }
-  });
-}
-
-function loadCatalogFail(error) {
-  return ({
-    type: types.LOAD_CATALOG_FAIL,
-    error
-  });
-}
-
 export const actions = {
-  loadCatalog,
-  loadCatalogSucess,
-  loadCatalogFail
+  ...loadable.actions
 };
 
 // Reducer
 
 const initialState = {
-  result: {
-    totalPages: 0,
-    totalItems: 0,
-    media: []
-  },
-  status: { ...INITIAL_LOADABLE_STATE }
+  totalPages: 0,
+  totalItems: 0,
+  media: []
 };
 
-function catalog(state = initialState, action) {
-  switch (action.type) {
-    case (types.LOAD_CATALOG_SUCCESS): {
-      const { totalItems, totalPages, media } = action.payload;
+function handleLoadSuccess(state, { payload }) {
+  const {
+    totalItems,
+    totalPages,
+    result
+  } = payload.data;
 
-      return ({
-        ...state,
-        result: {
-          totalItems,
-          totalPages,
-          media
-        }
-      });
-    }
-
-    default:
-      return state;
-  }
+  return ({
+    ...state,
+    totalItems,
+    totalPages,
+    media: result
+  });
 }
 
+const catalogReducer = handleAction(
+  actions.loadSuccess,
+  handleLoadSuccess,
+  initialState
+);
 // Selectors
 
 export const getPages = createSelector(
@@ -89,7 +58,5 @@ export const getMedia = createSelector(
 );
 
 export default withLoadable({
-  isLoadingAction: types.LOAD_CATALOG,
-  successAction: types.LOAD_CATALOG_SUCCESS,
-  errorAction: types.LOAD_CATALOG_FAIL
-})(catalog);
+  ...loadable.actions
+})(catalogReducer);

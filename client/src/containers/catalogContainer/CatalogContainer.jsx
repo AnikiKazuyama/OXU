@@ -32,7 +32,7 @@ function mapDispatchToProps(dispatch, ownProps) {
 
   return ({
     load: (page = initialPage, filterOptions) => {
-      return dispatch(catalogActions.loadCatalog(page, filterOptions))
+      return dispatch(catalogActions.load({ page, filterOptions }));
     }
   });
 }

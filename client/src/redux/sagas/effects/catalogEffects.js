@@ -4,13 +4,13 @@ import CatalogRequests from '../../../utils/restService/catalogRequests';
 import { actions as catalogActions } from '../../modules/catalog';
 
 function* loadCatalog(action) {
-  const { loadCatalogSucess, loadCatalogFail } = catalogActions;
+  const { loadSuccess, loadFail } = catalogActions;
   const response = yield call(CatalogRequests.getFakeCatalog, action.payload.page);
 
   if (response) {
-    yield put(loadCatalogSucess(response));
+    yield put(loadSuccess(response));
   } else {
-    yield put(loadCatalogFail({ errorCode: 13, errorMessage: 'Focking hell' }));
+    yield put(loadFail({ errorCode: 13, errorMessage: 'Focking hell' }));
   }
 }
 
