@@ -44,7 +44,7 @@ const withLoadable = (actionTypes) => {
     INITIAL_LOADABLE_STATE
   );
 
-  return baseReducer => (combineReducers({ status, result: baseReducer }));
+  return baseReducer => (combineReducers({ status, data: baseReducer }));
 };
 
 export default withLoadable;
