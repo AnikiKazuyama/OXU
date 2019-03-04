@@ -22,7 +22,7 @@ function* addBookmark(action) {
   const response = yield call(ProfileRequests.addBookmark, to, bookmarkId);
 
   if (response) {
-    yield put(addBookmarkSuccess(to, response.result));
+    yield put(addBookmarkSuccess(to, response));
   } else {
     yield put(addBookmarkFail({ errorCode: 13, errorMessage: 'Focking hell' }));
   }
