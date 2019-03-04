@@ -1,40 +1,59 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../common/button';
 
+import withAddToFavorite
+  from '../../../containers/profileContainer/ContentCenterContainer/HOC/withAddBookmark';
+
+const AddToFavoriteBtn = withAddToFavorite (Button, 'favorite');
+
 class MangaActions extends Component {
   static defaultProps = {
-    items: []
-  }
+    items: [],
+  };
 
   static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string,
-      text: PropTypes.string
-    }))
-  }
+    items: PropTypes.arrayOf (
+      PropTypes.shape ({
+        id: PropTypes.string,
+        text: PropTypes.string,
+      })
+    ),
+  };
 
-  handleClick(id) {
-    return(null);
-  }
-
-  renderItems() {
-    return this.props.items.map(item => (
-      <Button
-        fullWidth
-        onClick={() => this.handleClick(item.id)}
-        key={item.id}
-      >
-        { item.text }
+  renderSimpleButton({id, text}) {
+    return (
+      <Button fullWidth key={id}>
+        {text}
       </Button>
-    ));
+    );
   }
 
-  render() {
+  renderWrapButton({id, text}) {
+    const mangaId = this.props.id;
+
+    return (
+      <AddToFavoriteBtn fullWidth key={id} id={mangaId}>
+        {text}
+      </AddToFavoriteBtn>
+    );
+  }
+
+  renderItems () {
+    return this.props.items.map (item => {
+      if (item.id === 'addToFavorite') {
+        return this.renderWrapButton (item);
+      }
+
+      return this.renderSimpleButton (item);
+    });
+  }
+
+  render () {
     return (
       <React.Fragment>
-        { this.renderItems() }
+        {this.renderItems ()}
       </React.Fragment>
     );
   }
