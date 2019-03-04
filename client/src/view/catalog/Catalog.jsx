@@ -60,6 +60,7 @@ class Catalog extends PureComponent {
       if (item) {
         return (
           <CatalogItem
+            id={item.id}
             title={item.title}
             content={item.content}
             genres={item.genres}

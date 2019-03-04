@@ -7,6 +7,7 @@ import ProfileContainer from '../../../containers/profileContainer';
 import MangaRoute from '../../manga/mangaRoute';
 import ReaderRoute from '../../reader/readerRoute';
 import notFound from '../notFound';
+import MangaContainer from '../../../containers/mangaContainer';
 
 function MainRoute() {
   return (
@@ -15,7 +16,7 @@ function MainRoute() {
       <Route path="/catalog" component={CatalogContainer} />
       <Route exact path="/read" component={ReaderRoute} />
       <Route path="/im" component={ProfileContainer} />
-      <Route path="/manga" component={MangaRoute} />
+      <Route path="/manga/:id" component={MangaContainer} />
       <Route component={notFound} />
     </Switch>
   );

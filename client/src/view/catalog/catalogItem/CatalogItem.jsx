@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Counter from '../../common/counter';
@@ -41,6 +42,7 @@ class CatalogItem extends Component {
 
   render() {
     const {
+      id,
       title,
       content,
       preview
@@ -50,10 +52,10 @@ class CatalogItem extends Component {
 
     return (
       <Card className="catalog-item" shadow>
-        <div className="catalog-item__preview">
+        <Link to={`/manga/${id}`} className="catalog-item__preview">
           <Image src={preview} />
           <span className="catalog-item__title">{ title }</span>
-        </div>
+        </Link>
         <div className="catalog-item__content">
           <div className="catalog-item__header">{ this.renderGenres() }</div>
           <div className="catalog-item__main" ref={this.content}>
