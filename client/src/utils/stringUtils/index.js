@@ -12,7 +12,7 @@ class StringUtils {
     let result = `${number}''`;
     let index = result.length - bitLength;
     while (index > 0) {
-      result = `${result.substring(0, index)} ${result.substring(index)}`;
+      result = `${result.substring(index, 0)} ${result.substring(index)}`;
       index -= bitLength;
     }
     return result;
