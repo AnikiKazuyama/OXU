@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import WDYU from 'why-did-you-update';
+import React, {Component, Fragment} from 'react';
 
 import Main from './view/main';
 import HeaderContainer from './containers/headerContainer';
@@ -12,12 +11,11 @@ import './assets/style/normalize.scss';
 import './assets/style/reset.scss';
 
 class App extends Component {
-  componentDidMount() {
-    Polyfill.initAll();
-    // WDYU(React);
+  componentDidMount () {
+    Polyfill.initAll ();
   }
 
-  render() {
+  render () {
     return (
       <Fragment>
         <HeaderContainer />
