@@ -65,7 +65,7 @@ function Header() {
 
             <NavItem
               id="support"
-              href="/manga"
+              href="/support"
               className="site-header__nav-item"
             >
               Support
