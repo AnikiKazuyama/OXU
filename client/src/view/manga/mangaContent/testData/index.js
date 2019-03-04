@@ -1,28 +1,36 @@
+import StringUtil from '../../../../utils/stringUtils';
+
 const chaptersAndVolumes = {
   ch: 192,
   vol: 29
 };
 
-const mangaInfo = [
+const mangaInfo = ({
+  views,
+  date,
+  genres,
+  author,
+  magazine
+}) => [
   {
     title: 'Views',
-    description: '150 000'
+    description: String(views)
   },
   {
     title: 'Start Date',
-    description: 'April 1, 2000'
+    description: date
   },
   {
     title: 'Genres',
-    description: 'Action, Hentai, Futanari, Action, Hentai, Futanari, Action, Hentai, Futanari'
+    description: genres.map(genre => StringUtil.firstToUpper(genre.name)).join(' ')
   },
   {
     title: 'Author',
-    description: 'Eichiro Oda'
+    description: author.name
   },
   {
     title: 'Magazine',
-    description: 'Senen jump'
+    description: magazine.name
   }
 ];
 
