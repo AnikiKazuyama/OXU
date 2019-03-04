@@ -56,7 +56,7 @@ const profileReducer = handleAction(
 );
 
 // Selectors
-export const getProfile = createSelector(state => state.profile.result, user => user);
+export const getProfile = createSelector(state => state.profile.data, user => user);
 
 export default withLoadable({
   ...loadable.actions

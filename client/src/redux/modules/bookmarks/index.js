@@ -9,25 +9,25 @@ const loadable = generateLoadableActions(moduleName);
 
 // Types
 export const types = {
-  ADD_BOORMARK: 'ADD_BOORMARK',
-  ADD_BOORMARK_SUCCESS: 'ADD_BOORMARK_SUCCESS',
-  ADD_BOORMARK_FAIL: 'ADD_BOORMARK_FAIL',
+  ADD_BOOKMARK: 'ADD_BOOKMARK',
+  ADD_BOOKMARK_SUCCESS: 'ADD_BOOKMARK_SUCCESS',
+  ADD_BOOKMARK_FAIL: 'ADD_BOOKMARK_FAIL',
   ...loadable.types
 };
 
 // Actions
 const addBookmark = createAction(
-  types.ADD_BOORMARK,
+  types.ADD_BOOKMARK,
   (to, bookmarkId) => ({ to, bookmarkId })
 );
 
 const addBookmarkSuccess = createAction(
-  types.ADD_BOORMARK_SUCCESS,
+  types.ADD_BOOKMARK_SUCCESS,
   (to, bookmark) => ({ to, bookmark })
 );
 
 const addBookmarkFail = createAction(
-  types.ADD_BOORMARK_FAIL,
+  types.ADD_BOOKMARK_FAIL,
   error => error
 );
 
@@ -38,7 +38,7 @@ export const actions = {
   ...loadable.actions
 };
 
-export const getBookmarks = state => state.bookmarks.result || [];
+export const getBookmarks = state => state.bookmarks.data || [];
 
 const initialState = { };
 
@@ -51,14 +51,21 @@ function handleLoadSuccess(state, { payload }) {
 
 function handleAddBookmarkSuccess(state, { payload }) {
   const { to, bookmark } = payload;
-  if (to === 'Done' || to === 'Reading' || to === 'Favorite') {
-    const { result } = state;
+  if (to === 'done' || to === 'reading' || to === 'favorite') {
+    if (state[to]) {
+      console.log(123)
+      return ({
+        ...state,
+        [to]: {
+          items: [...state[to].items, ...bookmark]
+        }
+      });
+    }
 
     return ({
       ...state,
-      [result[to]]: {
-        ...result[to],
-        bookmark
+      [to]: {
+        items: [bookmark]
       }
     });
   }

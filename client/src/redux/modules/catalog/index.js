@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { createAction, handleAction } from 'redux-actions';
+import { handleAction } from 'redux-actions';
 
 import withLoadable from '../../HOR/withLoadable';
 import generateLoadableActions from '../../helpers/factories/loadableFactory';
@@ -48,12 +48,12 @@ const catalogReducer = handleAction(
 // Selectors
 
 export const getPages = createSelector(
-  state => state.catalog.result,
+  state => state.catalog.data,
   catalogData => catalogData.totalPages
 );
 
 export const getMedia = createSelector(
-  state => state.catalog.result,
+  state => state.catalog.data,
   catalogData => catalogData.media
 );
 
