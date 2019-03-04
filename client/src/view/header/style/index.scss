@@ -6,7 +6,6 @@ $headerHeight: 55px;
 .site-header {
   z-index: 100;
   box-sizing: content-box;
-  // position: fixed;
   width: 100%;
   box-shadow: 0 0 1px #b1b1b1;
   background-color: #ffffff;
@@ -90,17 +89,9 @@ $headerHeight: 55px;
       background-position: 10px center;
       background-size: 18px;
       font-size: 14px;
-      transition: background-color 0.1s ease-in-out; 
-      &:focus {
-        background-color: $headerBgLight;
-      }
-      &:focus::placeholder {
-        color: transparent;
-      }
+      letter-spacing: 0.5px;
       &::placeholder {
-        letter-spacing: 0.5px;
         color: rgba(255, 255, 255, 0.8);
-        transition: color 0.1s ease-in-out;
       }
     }
   }

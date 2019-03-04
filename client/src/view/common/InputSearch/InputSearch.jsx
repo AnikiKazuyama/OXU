@@ -17,7 +17,6 @@ class InputSearch extends PureComponent {
   render() {
     return (
       <div className={`input-search ${this.props.className}`}>
-        <a className="input-search__random hide-text">search random</a>
         <Input className="input-search__field" placeholder="Search..." />
       </div>
     );

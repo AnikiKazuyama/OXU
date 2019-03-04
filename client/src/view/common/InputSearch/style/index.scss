@@ -1,15 +1,6 @@
 .input-search {
   display: flex;
   align-items: center;
-  &__random {
-    margin-right: 10px;
-    width: 35px;
-    height: 35px;
-    background-image: url(../../../../assets/img/dices.svg);
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: center;
-  }
   &__field {
     flex-grow: 1;
     flex-basis: 0;
