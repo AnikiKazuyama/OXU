@@ -15,15 +15,46 @@ import './style/index.scss';
 const MangaContentWithWrapper = withWrapper(MangaContent);
 
 function Manga(props) {
-  const { heroUrl } = props;
+  const { heroUrl, manga } = props;
+  const {
+    genres,
+    title,
+    description,
+    poster,
+    views,
+    date,
+    author,
+    magazine,
+    chapters,
+    volumes,
+    status,
+    id
+  } = manga;
 
   return (
     <div className="manga">
       <Hero url={heroUrl} />
-      <MangaHeader />
+      <MangaHeader
+        genres={genres}
+        title={title}
+        description={description}
+        poster={poster}
+      />
       <MangaContentWithWrapper
         containerClassName="manga__content"
-        left={<MangaContentLeft />}
+        left={(
+          <MangaContentLeft
+            views={views}
+            date={date}
+            genres={genres}
+            author={author}
+            magazine={magazine}
+            chapters={chapters}
+            volumes={volumes}
+            status={status}
+            id={id}
+          />
+        )}
         center={<MangaContentCenter />}
       />
     </div>

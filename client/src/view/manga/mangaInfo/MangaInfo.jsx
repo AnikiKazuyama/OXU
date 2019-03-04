@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 class MangaInfo extends Component {
   static defaultProps = {
     items: [],
-    chAVol: {
-      ch: 0,
-      vol: 0
-    }
+    chapters: 0,
+    volumes: 0
   }
 
   static propTypes = {
@@ -16,10 +14,8 @@ class MangaInfo extends Component {
       description: PropTypes.string
 
     })),
-    chAVol: PropTypes.shape({
-      ch: PropTypes.number,
-      vol: PropTypes.number
-    })
+    chapters: PropTypes.number,
+    volumes: PropTypes.number
   }
 
   renderInfo() {
@@ -35,11 +31,13 @@ class MangaInfo extends Component {
   }
 
   render() {
+    const { chapters, volumes } = this.props;
+
     return (
       <React.Fragment>
         <div className="manga__ch-vol">
-          <div className="manga__ch"><span className="manga__ch-vol--lg" data-desc="ch">{this.props.chAVol.ch}</span></div>
-          <div className="manga__vol"><span className="manga__ch-vol--lg" data-desc="vol">{this.props.chAVol.vol}</span></div>
+          <div className="manga__ch"><span className="manga__ch-vol--lg" data-desc="ch">{chapters}</span></div>
+          <div className="manga__vol"><span className="manga__ch-vol--lg" data-desc="vol">{volumes}</span></div>
         </div>
         <div className="manga__info">
           { this.renderInfo() }

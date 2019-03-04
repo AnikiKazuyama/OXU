@@ -8,15 +8,25 @@ import Sticky from '../../common/sticky';
 import items from '../../../constants/mangaActions';
 import { chaptersAndVolumes, mangaInfo } from '../mangaContent/testData';
 
-function MangaContentLeft() {
+function MangaContentLeft(props) {
+  const { chapters, volumes, status, id } = props;
+
+  function getMangaInfo() {
+    return mangaInfo(props);
+  }
+
   return (
     <div className="manga__content-left">
       <Card shadow>
-        <MangaActions items={items} />
+        <MangaActions items={items} id={id} />
       </Card>
 
-      <Card title="Ongoing" shadow>
-        <MangaInfo items={mangaInfo} chAVol={chaptersAndVolumes} />
+      <Card title={status} shadow>
+        <MangaInfo
+          items={getMangaInfo()}
+          chapters={chapters}
+          volumes={volumes}
+        />
       </Card>
     </div>
   );
