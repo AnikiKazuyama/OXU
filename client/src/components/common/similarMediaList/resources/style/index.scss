@@ -1,0 +1,37 @@
+@import '../../../../../assets/style/colors';
+
+.similar-media {
+    padding: 15px 0;
+    &__item {
+        display: flex;
+        padding: 5px 5px;
+        color: $textColor;
+        transition: background-color 0.2s;
+        &:hover, &:focus {
+            outline: none;
+            background-color: $hoverColor;
+        }
+    }
+    &__img {
+        width: 90px; 
+        min-width: 90px;
+        height: 125px;
+    }
+    &__description {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+        overflow: hidden;
+    }
+    &__title {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    &__status, &__chapters {
+        margin-bottom: 4px;
+    }
+    &__status, &__chapters, &__views {
+        font-size: 11px;
+        opacity: 0.7;
+    }
+}

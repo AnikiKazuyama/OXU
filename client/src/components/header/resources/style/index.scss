@@ -1,0 +1,98 @@
+@import '../../../../assets/style/colors';
+@import '../../../../assets/style/constants.scss';
+
+$headerHeight: 55px;
+
+.site-header {
+  z-index: 100;
+  box-sizing: content-box;
+  width: 100%;
+  box-shadow: 0 0 1px #b1b1b1;
+  background-color: #ffffff;
+  &__line { 
+    height: 90px;
+    background-color: $headerBg;
+  }
+  &__line-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    color: #ffffff;
+    font-weight: 100;
+  }
+  &__title {
+    font-size: 42px;
+  }
+  &__sub-title {
+    margin-top: -3px;
+    font-size: 13px;
+    letter-spacing: 0.75px;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  &__maskot {
+    width: 90px;
+    height: 135px;
+    margin-top: -85px;
+    margin-right: 25px;
+    line-height: $headerHeight;
+    background-image: url(../../../../assets/img/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    pointer-events: none;
+  }
+  &__title-container {
+    flex-shrink: 0;
+    margin-left: 90px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  &__nav {
+    margin-right: auto;
+    &-item {
+      display: inline-block;
+      height: $headerHeight;
+      line-height: $headerHeight;
+      padding: 0 20px;
+      font-size: 14px;
+      color: $headerBg;
+      &:hover, &.navigation__item--active {
+        background-color: $headerBg;
+        color: #ffffff;
+      }
+      &:focus {
+        outline: none;
+        background-color: $headerBg;
+        color: #ffffff;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    height: $headerHeight;
+  }
+  &__input {
+    width: 400px;
+    input {
+      width: 100%;
+      height: 35px;
+      padding: 0 10px 0 40px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.8);
+      background-color: $headerBg;
+      background-image: url('../images/search.svg');
+      background-repeat: no-repeat;
+      background-position: 10px center;
+      background-size: 18px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}

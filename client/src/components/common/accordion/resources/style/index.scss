@@ -1,0 +1,60 @@
+@import '../../../../../assets/style/colors';
+
+$buttonSize: 21px;
+
+.accordion {
+  &--expanded &__header {
+    border-color: transparent;
+  }
+  &--expanded &__button {
+    background-image: url("../../../../../assets/img/minus.svg");
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 8px 5px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s ease-out;
+    outline: none
+  }
+  &__button {
+    position: relative;
+    width: $buttonSize; 
+    height: $buttonSize;
+    background-color: $textColor;
+    background-image: url("../../../../../assets/img/plus.svg");
+    background-size: 9px;
+    background-position: 6px;
+    background-repeat: no-repeat;
+    text-align: center;
+    line-height: $buttonSize;
+    opacity: 0.4;
+    transition: opacity ease-in-out 0.2s, background-image ease-in-out 0.2s;
+    cursor: pointer;
+  }
+  &__button:hover {
+    opacity: 0.6;
+  }
+  &__body {
+    overflow: hidden;
+    transition: height 0.25s ease-in;
+  }
+  &__body-inner {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+}
+
+.accordion.accordion--simple {
+  .accordion__button {
+    display: none;
+  }
+  .accordion__header {
+    padding: 0;
+    border: none;
+  }
+}

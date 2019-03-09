@@ -1,0 +1,89 @@
+@import '../../../../../assets/style/colors';
+
+.pagination__tapper {
+  align-items: center;
+}
+
+.pagination,
+.pagination__btn-list,
+.pagination__tapper{
+  display: flex;
+}
+
+.pagination {
+  &__btn-list {
+    margin: 0 -5px;
+  }
+
+  &__page-button,
+  &__tapper-box::after,
+  &__tapper-submit {
+    cursor: pointer;
+  }
+
+  &__page-button {
+    display: flex;
+    align-items: center;
+    min-width: 2rem;
+    padding: 8px 12px;
+    margin: 0 3px;
+    background-color: $padColor;
+    border-radius: 3px;
+  }
+
+  &__page-button--active {
+    background-color: darken($padColor, 8%)
+  }
+
+  &__page-button--next svg,
+  &__page-button--prev svg {
+    width: 1em;
+  }
+
+  &__page-button--next svg {
+    transform: rotate(-90deg);
+  }
+
+  &__page-button--prev svg {
+    transform: rotate(90deg);
+  }
+
+  &__tapper-box {
+    position: relative;
+    padding: 4px;
+    padding-right: 18px;
+    border-radius: 3px;
+    background-color: #6646a2;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      right: 5px;
+      transform: translateY(-50%);
+      background-image: url('../../../../../assets/img/FatArrow.svg');
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__tapper-submit {
+    margin-right: 8px;
+  }
+
+  &__input {
+    width: 70px;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 3px;
+    background-color: transparent;
+    outline: none;
+    font-size: 16px;
+    color: white;
+  }
+
+  & > .divider {
+    margin: 6px 8px;
+  }
+}

@@ -1,0 +1,8 @@
+@import '../../../../assets/style/constants';
+
+.site-main {
+    display: flex;
+    flex-direction: column;
+    // padding-top: $headerHeight;
+    padding-bottom: 30px;
+}
